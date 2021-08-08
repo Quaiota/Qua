@@ -1,10 +1,10 @@
 import React from 'react'
-import AdminPages from './Admin'
+import Tube from './Tube'
 
 const index = () => {
   return (
     <>
-      <AdminPages />
+      <Tube />
     </>
   )
 }

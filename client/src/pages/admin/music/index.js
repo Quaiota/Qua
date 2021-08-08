@@ -1,10 +1,10 @@
 import React from 'react'
-import AdminPages from './Admin'
+import Music from './Music'
 
 const index = () => {
   return (
     <>
-      <AdminPages />
+      <Music />
     </>
   )
 }

@@ -14,10 +14,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      // <StoreProvider>
       <Router>
         <div>
-          {/* declare sub routes */}
           <Switch>
             {/* dashboard routes */}
             <Route path="/app" component={Admin} />
@@ -30,7 +28,6 @@ export default class App extends React.Component {
           </Switch>
         </div>
       </Router>
-      // </StoreProvider>
     )
   }
 }
