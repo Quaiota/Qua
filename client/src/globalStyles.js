@@ -10,9 +10,7 @@ html {
     margin: 0;
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
-    overflow-x: hidden;
     background-color: #0E0F0F;
-    
   }
 `
 

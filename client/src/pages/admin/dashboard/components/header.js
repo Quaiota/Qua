@@ -10,11 +10,10 @@ const Container = styled.header`
 const Banner = styled.div`
   background: url(${BannerImage}) no-repeat center center / cover;
   margin: 0;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   display: flex;
   justify-content: center;
 `
-
 const Profile = styled.div`
   position: relative;
   top: -2.8rem;
@@ -22,7 +21,6 @@ const Profile = styled.div`
   flex-direction: column;
   padding: 0.2rem 2rem;
 `
-
 const Avatar = styled.img`
   border-radius: 50%;
   width: 90px;
