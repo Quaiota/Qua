@@ -6,17 +6,25 @@ import styled from 'styled-components'
 const Container = styled.header`
   display: flex;
   flex-direction: column;
+  padding: 12px;
+  margin-top: 4rem;
 `
 const Banner = styled.div`
-  background: url(${BannerImage}) no-repeat center center / cover;
+  background: linear-gradient(
+      180deg,
+      rgba(14, 15, 15, 0) 0%,
+      rgba(14, 15, 15, 0.576) 100%
+    ),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
+
+  /* url(${BannerImage}) no-repeat center center / cover; */
   margin: 0;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: center;
+  border-radius: 24px;
 `
 const Profile = styled.div`
-  position: relative;
-  top: -2.8rem;
   display: flex;
   flex-direction: column;
   padding: 0.2rem 2rem;
@@ -36,13 +44,11 @@ const Header = () => {
   return (
     <Container>
       <Banner>
-        <h3>Welcome to internet 3.0</h3>
+        <Profile>
+          <Avatar src={Image} alt="Avatar" />
+          <UserName>@LordRose</UserName>
+        </Profile>
       </Banner>
-
-      <Profile>
-        <Avatar src={Image} alt="Avatar" />
-        <UserName>@LordRose</UserName>
-      </Profile>
     </Container>
   )
 }

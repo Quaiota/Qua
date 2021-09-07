@@ -2,10 +2,13 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 html { 
-    overflow-x: hidden; 
+    /* overflow-x: hidden;  */
+    overflow: scroll;
+    overflow-x: hidden;
     width: 100%;
     height: 100%;
 }
+
   body {
     margin: 0;
     padding: 0;

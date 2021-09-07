@@ -1,24 +1,9 @@
 import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Dashboard from './dashboard'
-
-const Tube = React.lazy(() =>
-  import('./tube').then((module) => ({
-    default: module.Tube
-  }))
-)
-
-const Social = React.lazy(() =>
-  import('./social').then((module) => ({
-    default: module.Social
-  }))
-)
-
-const Music = React.lazy(() =>
-  import('./music').then((module) => ({
-    default: module.Music
-  }))
-)
+import Music from './music'
+import Social from './social'
+import Tube from './tube'
 
 export default class AdminPages extends React.Component {
   render() {

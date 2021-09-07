@@ -1,10 +1,10 @@
 import React from 'react'
-import Sidebar from './Sidebar'
+import SidebarData from './Sidebar'
 
 const index = () => {
   return (
     <>
-      <Sidebar />
+      <SidebarData />
     </>
   )
 }

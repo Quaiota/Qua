@@ -1,4 +1,3 @@
-import Tube from 'assets/images/tube.png'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -6,46 +5,54 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.2rem 1.4rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),
-    linear-gradient(0deg, rgba(84, 18, 129, 0.8), rgba(84, 18, 129, 0.8)),
-    url(${Tube}) no-repeat center center / cover;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.04)
+    ),
+    linear-gradient(0deg, rgba(14, 15, 15, 0.8), rgba(14, 15, 15, 0.8));
   border-radius: 24px;
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
 `
 const Name = styled.h2`
   font-weight: bold;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 24px;
+  /* line-height: 26px; */
+`
+const Icon = styled.img`
+  width: 30px;
+  height: 30px;
+  margin: 0 0.8rem 0 0;
+
+  background: #ffffff;
+  border-radius: 50%;
 `
 const Token = styled.div`
-  margin-bottom: 4px;
+  /* margin-bottom: 4px; */
 `
-const Time = styled(Token)``
-
 const Figure = styled.h2`
   font-size: 24px;
+  margin: 0;
 `
-const Hours = styled(Figure)``
-
 const Total = styled.p`
   font-size: 16px;
 `
 
-const Label = styled.p`
-  font-size: 16px;
-`
-
-const Analytics = ({ name, figure, sum, time, label }) => {
+const Analytics = ({ name, figure }) => {
   return (
     <Container>
-      <Name>{name}</Name>
+      <Wrapper>
+        <Icon src={Image} alt="Icon" />
+        <Name>{name}</Name>
+      </Wrapper>
       <Token>
-        <Figure>{figure}</Figure>
-        <Total>Token = {sum}</Total>
+        <Figure>{figure} QUA</Figure>
+        <Total>Token earned</Total>
       </Token>
-      <Time>
-        <Hours>{time}</Hours>
-        <Label>{label}</Label>
-      </Time>
     </Container>
   )
 }

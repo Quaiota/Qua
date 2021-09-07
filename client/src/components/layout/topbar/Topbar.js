@@ -20,10 +20,10 @@ const Container = styled.div`
   z-index: 1;
 `
 
-const Topbar = () => {
+const Topbar = ({ title, logo }) => {
   return (
     <Container>
-      <IconNav />
+      <IconNav /> {title} {logo}
     </Container>
   )
 }
