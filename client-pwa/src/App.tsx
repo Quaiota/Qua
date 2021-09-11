@@ -11,7 +11,7 @@ function App() {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
       <div>
-        <Heading1>hello world</Heading1>{' '}
+        <Heading1>Hello Quaiota</Heading1>
       </div>
     </Web3ReactProvider>
   );
