@@ -1,4 +1,4 @@
-import { Heading1 } from '../../UI/atom/Typography';
+import { Heading1 } from '../../UI/atom/Typography/Typography';
 import { observer } from 'mobx-react';
 import { useStore } from '../../App';
 import { useHistory } from 'react-router';

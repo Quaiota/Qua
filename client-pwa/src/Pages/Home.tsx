@@ -1,8 +1,7 @@
-import { observer } from 'mobx-react';
 import { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useStore } from '../App';
-import { Heading1 } from '../UI/atom/Typography';
+import { Heading1 } from '../UI/atom/Typography/Typography';
 
 const Home = memo(() => {
   const appHistory = useHistory();
