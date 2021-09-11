@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
+import { useStore } from '../App';
 
 const ProtectedRoute: FC<RouteProps> = ({
   component: Component,
   ...rest
 }: RouteProps) => {
-  const isAuthenticated = false;
+  const isAuthenticated = useStore().userStore.auth;
 
   return (
     <Route
