@@ -1,5 +1,8 @@
 import { Web3ReactProvider } from '@web3-react/core';
-import { Heading1 } from './UI/atom/Typography';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ProtectedRoute from './Auth/ProtectedRoute';
+import Dashboard from './Pages/dashboard/Dashboard';
+import Home from './Pages/Home';
 
 // @ts-ignore
 function getLibrary(provider, connector) {
@@ -10,9 +13,12 @@ function getLibrary(provider, connector) {
 function App() {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <div>
-        <Heading1>Hello Quaiota</Heading1>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <ProtectedRoute path='/dashboard' component={Dashboard} />
+          <Route exact path='/' component={Home} />
+        </Switch>
+      </BrowserRouter>
     </Web3ReactProvider>
   );
 }
