@@ -1,7 +1,8 @@
-import { Heading1 } from '../../UI/atom/Typography/Typography';
 import { observer } from 'mobx-react';
 import { useStore } from '../../App';
 import { useHistory } from 'react-router';
+import styled from '@emotion/styled';
+import ProfileCard from '../../UI/molecules/ProfileCard/ProfileCard';
 
 const Dashboard = observer(() => {
   const store = useStore().userStore;
@@ -11,13 +12,20 @@ const Dashboard = observer(() => {
     history.replace('/');
   };
   return (
-    <div>
-      <Heading1>Dashboard</Heading1>
-      {store.name}
+    <MainBox>
+      <ProfileCard />
 
       <button onClick={logout}>log out</button>
-    </div>
+    </MainBox>
   );
 });
+
+const MainBox = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: #fafafa;
+  padding: 1.5rem;
+`;
 
 export default Dashboard;
