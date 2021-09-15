@@ -1,21 +1,29 @@
 import { ComponentProps } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Heading1, Text } from './Typography';
+import Header, { Text } from './Header';
 
 export default {
-  title: 'Atom/Typography',
-  component: Heading1,
+  title: 'Atom/Typography/Header',
+  component: Header,
 } as Meta;
 
-const HeaderTemplate: Story<ComponentProps<typeof Heading1>> = (args) => (
-  <Heading1 {...args} />
+const HeaderTemplate: Story<ComponentProps<typeof Header>> = (args) => (
+  <Header {...args} />
 );
 
 export const Header1 = HeaderTemplate.bind({});
 
 Header1.args = {
   color: 'red',
-  children: 'This what a header looks like',
+  text: 'This what a header looks like',
+};
+Header1.args = {
+  size: 'md',
+  text: 'This what a header looks like',
+};
+Header1.args = {
+  size: 'lg',
+  text: 'This what a header looks like',
 };
 
 const TextTemplate: Story<{}> = (args) => (
