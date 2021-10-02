@@ -34,7 +34,7 @@ const mdHeader = css`
 `;
 
 const Heading = styled.h1<IHeader>`
-  color: ${(props) => props.color ?? 'black'};
+  color: ${(props) => props.color ?? theme.white};
   font-weight: 900;
   font-size: 1.125rem;
   font-style: normal;

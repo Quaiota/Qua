@@ -34,6 +34,7 @@ const Container = styled.div<ICircleFrame>`
   object-fit: cover;
   object-position: center;
   display: inline-block;
+  background: ${theme.profileCard};
 
   img {
     width: 100%;

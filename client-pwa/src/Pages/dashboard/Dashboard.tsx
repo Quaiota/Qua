@@ -6,6 +6,8 @@ import ProfileCard from '../../UI/molecules/ProfileCard/ProfileCard';
 import { theme } from '../../UI/configs/theme';
 import Header from '../../UI/atom/Typography/Header';
 import Spacer from '../../UI/atom/spacer/spacer';
+import Card from '../../UI/atom/card/Card';
+import CircleFrame from '../../UI/atom/circle-frame/CircleFrame';
 
 const Dashboard = observer(() => {
   const store = useStore().userStore;
@@ -22,7 +24,14 @@ const Dashboard = observer(() => {
         <Spacer size='2rem' />
         <Header text='Overview' size='lg' color='white' />
         <Spacer size='2rem' />
-
+        <Card>
+          <StyledFlex>
+            <CircleFrame circleSize='sm' image='' />
+            <Spacer horizontalSpace size='.8rem' />
+            <Header text='Social' size='md' />
+          </StyledFlex>
+          <Header text='0 QUA' size='md' />
+        </Card>
         <button onClick={logout}>log out</button>
       </MainBox>
     </StyledLayout>
@@ -40,6 +49,11 @@ const MainBox = styled.div`
 const StyledLayout = styled.div`
   background: ${theme.black};
   height: 100%;
+`;
+
+const StyledFlex = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export default Dashboard;

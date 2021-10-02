@@ -26,7 +26,7 @@ export default ProfileCard;
 
 const StyledCard = styled.div`
   padding: 1.3rem 0 1.3rem 0;
-  background: ${theme.cardBg};
+  background: ${theme.profileCard};
   display: flex;
   max-width: 25.125rem;
   width: 100%;
