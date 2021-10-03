@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { FC } from 'react-router/node_modules/@types/react';
-import { theme } from '../../configs/theme';
 export interface ICard {
   color?: string;
   children: React.ReactNode;
@@ -10,7 +9,7 @@ const Card: FC<ICard> = ({ color, children }) => {
 };
 
 const StyledCard = styled.div`
-  background: ${theme.cardBg};
+  background: ${({ theme }) => theme.gradients.dark1};
   border-radius: 24px;
   padding: 24px;
   width: 100%;
