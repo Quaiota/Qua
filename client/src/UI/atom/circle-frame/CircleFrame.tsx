@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { FC } from 'react-router/node_modules/@types/react';
-import { theme } from '../../configs/theme';
 
 export interface ICircleFrame {
   image?: string;
@@ -27,14 +26,14 @@ const Container = styled.div<ICircleFrame>`
   border: ${(props) =>
     props.border &&
     ` ${props.circleSize === 'sm' ? '2px' : '4px'} solid ${
-      props.borderColor ?? theme.black
+      props.borderColor ?? props.theme.black.matteblack
     }`};
   border-radius: 50%;
   overflow: hidden;
   object-fit: cover;
   object-position: center;
   display: inline-block;
-  background: ${theme.profileCard};
+  background: ${({ theme }) => theme.gradients.light};
 
   img {
     width: 100%;

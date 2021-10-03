@@ -1,9 +1,9 @@
+import { withTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Button } from '../../atom/Button/Button';
 import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Spacer from '../../atom/spacer/spacer';
 import { Text } from '../../atom/Typography/Header';
-import { theme } from '../../configs/theme';
 const ProfileCard = () => {
   return (
     <StyledCard>
@@ -22,11 +22,11 @@ const ProfileCard = () => {
   );
 };
 
-export default ProfileCard;
+export default withTheme(ProfileCard);
 
 const StyledCard = styled.div`
   padding: 1.3rem 0 1.3rem 0;
-  background: ${theme.profileCard};
+  background: ${({ theme }) => theme.gradients.light};
   display: flex;
   max-width: 25.125rem;
   width: 100%;

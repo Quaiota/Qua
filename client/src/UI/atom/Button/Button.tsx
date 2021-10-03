@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { theme } from '../../configs/theme';
 
 export const Button = styled.button`
   font-style: normal;
@@ -8,7 +7,7 @@ export const Button = styled.button`
   line-height: 1.375rem;
   letter-spacing: 0.15px;
   border: none;
-  color: ${theme.white};
+  color: ${({ theme }) => theme.primary.white};
   background: rgba(255, 255, 255, 0.08);
   border-radius: 50px;
   padding: 0.75rem 1rem;

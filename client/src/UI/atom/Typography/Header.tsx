@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { FC } from 'react';
-import { theme } from '../../configs/theme';
 
 import { css } from '@emotion/react';
 
@@ -34,7 +33,7 @@ const mdHeader = css`
 `;
 
 const Heading = styled.h1<IHeader>`
-  color: ${(props) => props.color ?? theme.white};
+  color: ${(props) => props.color ?? props.theme.primary.white};
   font-weight: 900;
   font-size: 1.125rem;
   font-style: normal;
@@ -46,5 +45,5 @@ const Heading = styled.h1<IHeader>`
 `;
 
 export const Text = styled.p`
-  color: ${theme.white};
+  color: ${({ theme }) => theme.primary.white};
 `;
