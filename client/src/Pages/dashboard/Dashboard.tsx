@@ -3,19 +3,15 @@ import { useStore } from '../../App';
 import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
 import ProfileCard from '../../UI/molecules/ProfileCard/ProfileCard';
-import { theme } from '../../UI/configs/theme';
 import Header from '../../UI/atom/Typography/Header';
 import Spacer from '../../UI/atom/spacer/spacer';
 import Card from '../../UI/atom/card/Card';
 import CircleFrame from '../../UI/atom/circle-frame/CircleFrame';
-import { useTheme } from '@emotion/react';
 
 const Dashboard = observer(() => {
   const store = useStore().userStore;
   const history = useHistory();
-  const themer = useTheme();
 
-  console.log({ themer });
   const logout = () => {
     store.getAuth(false);
     history.replace('/');
@@ -51,7 +47,7 @@ const MainBox = styled.div`
 `;
 
 const StyledLayout = styled.div`
-  background: ${theme.black.matteblack};
+  background: ${({ theme }) => theme.black.matteblack};
   height: 100%;
 `;
 
