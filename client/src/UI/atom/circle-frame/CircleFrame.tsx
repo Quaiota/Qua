@@ -10,9 +10,15 @@ export interface ICircleFrame {
 }
 
 const CircleFrame: FC<ICircleFrame> = ({ icon, image, ...rest }) => {
+  const placeholder =
+    'https://images.unsplash.com/photo-1606590179266-8290574f18b7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
   return (
     <Container {...rest}>
-      {image && <img src={image} alt='display' />}
+      {image ? (
+        <img src={image} alt='display' />
+      ) : (
+        <img src={placeholder} alt='display' />
+      )}
       {/* // Todo: resolve to a better way to display icons  */}
       {icon && icon}
     </Container>
@@ -33,6 +39,7 @@ const Container = styled.div<ICircleFrame>`
   object-fit: cover;
   object-position: center;
   display: inline-block;
+  cursor: pointer;
   background: ${({ theme }) => theme.gradients.light};
 
   img {

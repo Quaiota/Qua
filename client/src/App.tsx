@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './Auth/ProtectedRoute';
 import { RootStore } from './Mobx/rootStore';
 import { iStore } from './Mobx/store_interface';
+
 import Dashboard from './Pages/dashboard/Dashboard';
 import Home from './Pages/Home';
 // @ts-ignore

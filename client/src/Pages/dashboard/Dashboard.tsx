@@ -2,11 +2,7 @@ import { observer } from 'mobx-react';
 import { useStore } from '../../App';
 import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
-import ProfileCard from '../../UI/molecules/ProfileCard/ProfileCard';
-import Header from '../../UI/atom/Typography/Header';
-import Spacer from '../../UI/atom/spacer/spacer';
-import Card from '../../UI/atom/card/Card';
-import CircleFrame from '../../UI/atom/circle-frame/CircleFrame';
+import DashboardLayout from '../../UI/Layout/DashboardLayout';
 
 const Dashboard = observer(() => {
   const store = useStore().userStore;
@@ -17,24 +13,12 @@ const Dashboard = observer(() => {
     history.replace('/');
   };
   return (
-    <StyledLayout>
+    <DashboardLayout>
       <MainBox>
-        <ProfileCard />
-        {/* Overview */}
-        <Spacer size='2rem' />
-        <Header text='Overview' size='lg' color='white' />
-        <Spacer size='2rem' />
-        <Card>
-          <StyledFlex>
-            <CircleFrame circleSize='sm' image='' />
-            <Spacer horizontalSpace size='.8rem' />
-            <Header text='Social' size='md' />
-          </StyledFlex>
-          <Header text='0 QUA' size='md' />
-        </Card>
+        Hello world
         <button onClick={logout}>log out</button>
       </MainBox>
-    </StyledLayout>
+    </DashboardLayout>
   );
 });
 
@@ -44,16 +28,6 @@ const MainBox = styled.div`
   margin: 0 auto;
   padding: 12px;
   height: 100%;
-`;
-
-const StyledLayout = styled.div`
-  background: ${({ theme }) => theme.black.matteblack};
-  height: 100%;
-`;
-
-const StyledFlex = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 export default Dashboard;

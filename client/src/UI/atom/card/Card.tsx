@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 import { FC } from 'react-router/node_modules/@types/react';
 export interface ICard {
   color?: string;
@@ -8,7 +9,7 @@ const Card: FC<ICard> = ({ color, children }) => {
   return <StyledCard color={color}>{children}</StyledCard>;
 };
 
-const StyledCard = styled.div`
+const StyledCard = styled(motion.div)`
   background: ${({ theme }) => theme.gradients.dark1};
   border-radius: 24px;
   padding: 24px;

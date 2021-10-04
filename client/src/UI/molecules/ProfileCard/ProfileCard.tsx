@@ -1,10 +1,13 @@
-import { withTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Button } from '../../atom/Button/Button';
 import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Spacer from '../../atom/spacer/spacer';
-import { Text } from '../../atom/Typography/Header';
-const ProfileCard = () => {
+import TextWrap from '../../atom/Typography/TextWrap';
+export interface IProfileCard {
+  src?: string;
+  userHandle?: string;
+}
+const ProfileCard: React.FC<IProfileCard> = () => {
   return (
     <StyledCard>
       <div>
@@ -14,7 +17,7 @@ const ProfileCard = () => {
           border={true}
         />
         <Spacer size='12px' />
-        <Text>@Roosevelt</Text>
+        <TextWrap>@Roosevelt</TextWrap>
         <Spacer size='1rem' />
         <Button>Connect wallet</Button>
       </div>
@@ -22,17 +25,20 @@ const ProfileCard = () => {
   );
 };
 
-export default withTheme(ProfileCard);
+export default ProfileCard;
 
 const StyledCard = styled.div`
   padding: 1.3rem 0 1.3rem 0;
   background: ${({ theme }) => theme.gradients.light};
   display: flex;
-  max-width: 25.125rem;
   width: 100%;
   min-height: 1.6rem;
   border-radius: 1.5rem;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  @media screen and(min-width: 428px) {
+    max-width: 25.125rem;
+  }
 `;
