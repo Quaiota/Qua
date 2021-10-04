@@ -3,6 +3,7 @@ import { Button } from '../../atom/Button/Button';
 import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Spacer from '../../atom/spacer/spacer';
 import TextWrap from '../../atom/Typography/TextWrap';
+import breakpoint from '../../configs/breakpoint';
 export interface IProfileCard {
   src?: string;
   userHandle?: string;
@@ -38,7 +39,7 @@ const StyledCard = styled.div`
   align-items: center;
   text-align: center;
 
-  @media screen and(min-width: 428px) {
+  @media screen and(min-width: ${breakpoint.mobile}px) {
     max-width: 25.125rem;
   }
 `;

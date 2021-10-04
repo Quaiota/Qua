@@ -7,7 +7,6 @@ import DashboardLayout from '../../UI/Layout/DashboardLayout';
 const Dashboard = observer(() => {
   const store = useStore().userStore;
   const history = useHistory();
-
   const logout = () => {
     store.getAuth(false);
     history.replace('/');

@@ -6,7 +6,7 @@ import NetWorth from '../molecules/Networth/NetWorth';
 import ProfileCard from '../molecules/ProfileCard/ProfileCard';
 import WalletList from '../molecules/WalletList/WalletList';
 import HorizontalNav from '../organisms/HorizontalNav';
-import SideNav from '../organisms/SideNav';
+import SideNav from '../organisms/SideNav/SideNav';
 
 const DashboardLayout: React.FC = ({ children }) => {
   const [toggle, setToggle] = useState(true);
@@ -70,7 +70,7 @@ const StyledDashboardLayout = styled.div`
       }
     }
   }
-  @media (min-width: ${breakpoint.desktop}) {
+  @media (min-width: ${breakpoint.desktop}px) {
     .wrapper {
       .containBox {
         flex-wrap: nowrap;

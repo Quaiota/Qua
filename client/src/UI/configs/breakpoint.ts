@@ -1,8 +1,8 @@
 const breakpoint = {
-  desktop: '1224px',
-  largeMonitor: '1824px',
-  tab: '768px',
-  mobile: '428px',
+  desktop: 1224,
+  largeMonitor: 1824,
+  tab: 768,
+  mobile: 428,
 };
 
 export default breakpoint;

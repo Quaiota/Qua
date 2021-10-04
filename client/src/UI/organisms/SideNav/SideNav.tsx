@@ -1,21 +1,31 @@
+import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import SearchIcon from '../../atom/icons/SearchIcon';
 import SocialIcon from '../../atom/icons/SocialIcon';
 import Spacer from '../../atom/spacer/spacer';
 import TextWrap from '../../atom/Typography/TextWrap';
+import breakpoint from '../../configs/breakpoint';
 
 export interface ISideNav {
   open: boolean;
 }
 const SideNav: React.FC<ISideNav> = ({ open }) => {
-  const initWidth = { maxWidth: '80px' };
-  const maxWidth = { maxWidth: '268px' };
+  const initWidth = { maxWidth: '80px', opacity: 0 };
+  const maxWidth = { maxWidth: '268px', opacity: 1 };
+  const fullWidth = { maxWidth: `${breakpoint.tab}px`, opacity: 1 };
+  const [windowW, setWindowW] = useState(0);
+
+  useEffect(() => {
+    setWindowW(window.outerWidth);
+  }, []);
   return (
     <StyledSideNav
       open={open}
       initial={initWidth}
-      animate={open ? maxWidth : initWidth}>
+      animate={
+        open ? (windowW <= breakpoint.mobile ? fullWidth : maxWidth) : initWidth
+      }>
       {open && (
         <>
           {/* search input */}
@@ -69,7 +79,10 @@ const StyledSideNav = styled(motion.section)<{ open: boolean }>`
     padding: 1rem;
   }
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: ${breakpoint.mobile}px) {
+    position: ${(props) => props.open && 'fixed'};
+    z-index: 1100;
+
     display: ${(props) => (props.open ? 'block' : 'none')};
   }
 `;
