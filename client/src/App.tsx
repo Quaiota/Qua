@@ -2,6 +2,7 @@ import { Web3ReactProvider } from '@web3-react/core';
 import { createContext, useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './auth/ProtectedRoute';
+import GlobalStyles from './GlobalStyle';
 import { RootStore } from './mobx/rootStore';
 import { iStore } from './mobx/store_interface';
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <StoreContext.Provider value={RootStore}>
       <Web3ReactProvider getLibrary={getLibrary}>
+        <GlobalStyles />
         <BrowserRouter>
           <Switch>
             <ProtectedRoute path='/dashboard' component={Dashboard} />

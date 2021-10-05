@@ -8,6 +8,7 @@ const Dashboard = observer(() => {
     <DashboardLayout>
       <MainBox>
         <LineChart />
+        <LineChart />
       </MainBox>
     </DashboardLayout>
   );
@@ -19,6 +20,10 @@ const MainBox = styled.div`
   margin: 0 auto;
   padding: 12px;
   height: 100%;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
 `;
 
 export default Dashboard;

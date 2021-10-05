@@ -6,10 +6,9 @@ import TextWrap from '../typography/TextWrap';
 
 const GraphToggle = () => {
   const colors = useTheme();
-  //   const initBg =
+
   return (
     <StyledBox>
-      <StyledToggle className='styledtoggle' />
       <div className='label'>
         <span>
           <QuaIcon /> 0
@@ -24,18 +23,6 @@ const GraphToggle = () => {
 
 export default GraphToggle;
 
-const StyledToggle = styled(motion.button)`
-  background: ${({ theme }) => theme.black.dark1};
-  border: none;
-  display: inline-block;
-  padding: 6px;
-  width: 100%;
-  transition: all 0.23s ease-in;
-  :hover {
-    background: ${({ theme }) => theme.primary.mint2};
-  }
-`;
-
 const StyledBox = styled.div`
   /* max-width: 197px; */
   flex-grow: 1;
@@ -48,6 +35,7 @@ const StyledBox = styled.div`
     display: flex;
     align-items: center;
     padding-top: 12px;
+
     span {
       margin-right: 12px;
       padding: 4px;

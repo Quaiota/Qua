@@ -14,13 +14,18 @@ export interface ISideNav {
 const SideNav: React.FC<ISideNav> = ({ open }) => {
   const initWidth = { maxWidth: '80px' };
   const maxWidth = { maxWidth: '300px' };
-  const fullWidth = { maxWidth: `${breakpoint.mobile + 60}px` };
+  const fullWidth = { maxWidth: `${breakpoint.mobile - 68}px` };
   const [windowW, setWindowW] = useState(0);
 
-  useEffect(() => {
+  const watchWindowResize = () => {
     window.addEventListener('resize', () => {
       setWindowW(window.outerWidth);
     });
+  };
+  useEffect(() => {
+    setWindowW(window.outerWidth);
+    watchWindowResize();
+    return () => watchWindowResize();
   }, []);
   return (
     <StyledSideNav
@@ -47,11 +52,12 @@ const SideNav: React.FC<ISideNav> = ({ open }) => {
         <Spacer size='1rem' />
         {/* sidebar items */}
         <StyledSidebarItem>
-          <SocialIcon /> {open && <p>Social</p>}
+          <SocialIcon /> {open && <TextWrap fontSize='bodymd'>Social</TextWrap>}
         </StyledSidebarItem>
       </StyledNavBox>
       <button className='connectbutton'>
-        <ConnectIcon /> <TextWrap fontSize='bodymd'>Connect apps</TextWrap>
+        <ConnectIcon />
+        {open && <TextWrap fontSize='bodymd'>Connect apps</TextWrap>}
       </button>
     </StyledSideNav>
   );

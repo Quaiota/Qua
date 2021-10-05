@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import GraphToggle from '../../atom/graphToggle/GraphToggle';
 import ChevronDown from '../../atom/icons/ChevronDown';
 import Spacer from '../../atom/spacer/spacer';
@@ -9,25 +9,20 @@ import breakpoint from '../../configs/breakpoint';
 const LineChart = () => {
   const theme = useTheme();
   const data = {
-    labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+    labels: ['Followers', 'Reactions', 'Activities'],
     datasets: [
-      {
-        label: 'Rainfall',
-        fill: false,
-        lineTension: 0.5,
-        backgroundColor: theme.primary.mint2,
-        borderColor: theme.primary.mint1,
-        borderWidth: 2,
-        data: [5, 20, 15, 35, 46, 0, 4],
-      },
       {
         label: 'Followers',
         fill: false,
-        lineTension: 0.5,
-        backgroundColor: theme.primary.pop2,
+        lineTension: 1.5,
+        backgroundColor: [
+          theme.primary.mint2,
+          theme.primary.pop2,
+          theme.primary.sea2,
+        ],
         borderColor: theme.primary.pop1,
         borderWidth: 2,
-        data: [15, 25, 35, 35, 56, 10, 4],
+        data: [15, 25, 12],
       },
     ],
   };
@@ -47,7 +42,7 @@ const LineChart = () => {
       <TextWrap fontSize='caption'>Highlights</TextWrap>
 
       <div></div>
-      <Line data={data} />
+      <Bar data={data} />
       <div className='toggle-box'>
         <GraphToggle />
         <GraphToggle />

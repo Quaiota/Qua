@@ -5,8 +5,8 @@ import breakpoint from '../configs/breakpoint';
 import NetWorth from '../molecules/networth/NetWorth';
 import ProfileCard from '../molecules/profileCard/ProfileCard';
 import WalletList from '../molecules/walletList/WalletList';
-import HorizontalNav from '../organisms/horizontalNav/HorizontalNav';
-import SideNav from '../organisms/sideNav/SideNav';
+import HorizontalNav from '../organisms/dashboardhorizontalNav/HorizontalNav';
+import SideNav from '../organisms/dashboardSideNav/SideNav';
 
 const DashboardLayout: React.FC = ({ children }) => {
   const [toggle, setToggle] = useState(true);
