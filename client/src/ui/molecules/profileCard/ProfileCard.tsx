@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button } from '../../atom/button/Button';
+import Button from '../../atom/button/Button';
 import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Spacer from '../../atom/spacer/spacer';
 import TextWrap from '../../atom/typography/TextWrap';
@@ -20,7 +20,7 @@ const ProfileCard: React.FC<IProfileCard> = () => {
         <Spacer size='12px' />
         <TextWrap>@Roosevelt</TextWrap>
         <Spacer size='1rem' />
-        <Button>Connect wallet</Button>
+        <Button btnType='outlined'>Connect wallet</Button>
       </div>
     </StyledCard>
   );

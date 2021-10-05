@@ -7,6 +7,7 @@ export interface ICircleFrame {
   border?: boolean;
   borderColor?: string;
   circleSize: 'sm' | 'md';
+  onClick?: () => void;
 }
 
 const CircleFrame: FC<ICircleFrame> = ({ icon, image, ...rest }) => {

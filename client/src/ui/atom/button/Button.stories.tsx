@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { theme } from '../../configs/theme';
-import { Button } from './Button';
+import Button from './Button';
 
 export default {
   title: 'Atom/Button',
@@ -13,5 +13,4 @@ export const Button_ = Template.bind({});
 
 Button_.args = {
   children: 'Button',
-  theme,
 };

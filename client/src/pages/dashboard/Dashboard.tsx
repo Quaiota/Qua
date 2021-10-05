@@ -1,21 +1,13 @@
 import { observer } from 'mobx-react';
-import { useStore } from '../../App';
-import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
 import DashboardLayout from '../../ui/layout/DashboardLayout';
+import LineChart from '../../ui/molecules/chart/LineChart';
 
 const Dashboard = observer(() => {
-  const store = useStore().userStore;
-  const history = useHistory();
-  const logout = () => {
-    store.getAuth(false);
-    history.replace('/');
-  };
   return (
     <DashboardLayout>
       <MainBox>
-        Hello world
-        <button onClick={logout}>log out</button>
+        <LineChart />
       </MainBox>
     </DashboardLayout>
   );

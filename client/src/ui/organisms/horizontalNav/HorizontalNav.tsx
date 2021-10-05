@@ -2,23 +2,35 @@ import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Menubar from '../../atom/icons/MenuBar';
+import CloseIcon from '../../atom/icons/Close';
+import { useStore } from '../../../App';
+import { useHistory } from 'react-router-dom';
 
 export interface IHorizontalNav {
   sidebarToggle: () => void;
   title?: string;
   profileImage: string;
+  sidebarOpen: boolean;
 }
 
 const HorizontalNav: React.FC<IHorizontalNav> = ({
   sidebarToggle,
   title,
   profileImage,
+  sidebarOpen,
 }) => {
+  const store = useStore().userStore;
+
+  const history = useHistory();
+  const logout = () => {
+    store.getAuth(false);
+    history.replace('/');
+  };
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className='logo'>
         <button onClick={sidebarToggle} className='sidebar-toggler'>
-          <Menubar />
+          {sidebarOpen ? <CloseIcon /> : <Menubar />}
         </button>
         {title ? (
           <h1>title</h1>
@@ -28,7 +40,7 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
           </h1>
         )}
       </div>
-      <CircleFrame circleSize='sm' image={profileImage} />
+      <CircleFrame onClick={logout} circleSize='sm' image={profileImage} />
     </StyledNav>
   );
 };
@@ -36,9 +48,10 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
 export default HorizontalNav;
 
 const StyledNav = styled(motion.nav)`
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
+  width: 100%;
   min-height: 45px;
   padding: 1rem;
   background: ${({ theme }) => theme.black.dark4};

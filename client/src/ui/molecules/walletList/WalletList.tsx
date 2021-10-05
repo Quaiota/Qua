@@ -5,6 +5,7 @@ import ChevronDown from '../../atom/icons/ChevronDown';
 import ChevronUp from '../../atom/icons/ChevronUp';
 import TextWrap from '../../atom/typography/TextWrap';
 import ConnectBtn from '../../atom/walletConnectBtn/ConnectBtn';
+import breakpoint from '../../configs/breakpoint';
 
 const WalletList: React.FC = () => {
   const [toggle, setToggle] = useState(false);
@@ -35,6 +36,11 @@ const StyledWalletList = styled(motion.div)`
   position: absolute;
   bottom: 0;
   width: 100%;
+
+  @media (max-width: ${breakpoint.tab}px) {
+    position: fixed;
+    bottom: 0;
+  }
 `;
 
 const StyledHead = styled.div`

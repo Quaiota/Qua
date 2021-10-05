@@ -1,10 +1,11 @@
+import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import Card from '../../atom/card/Card';
 import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import DownloadIcon from '../../atom/icons/DownloadIcon';
 import GearIcon from '../../atom/icons/GearIcon';
-import QuaSignIcon from '../../atom/icons/QuaIcon';
+import QuaIcon from '../../atom/icons/QuaIcon';
 import SendIcon from '../../atom/icons/SendIcon';
 import SwapIcon from '../../atom/icons/SwapIcon';
 import NetWorthBtn from '../../atom/NetWorthBtn';
@@ -12,8 +13,9 @@ import Spacer from '../../atom/spacer/spacer';
 import TextWrap from '../../atom/typography/TextWrap';
 
 const NetWorth = () => {
+  const color = useTheme();
   return (
-    <Card>
+    <Card color={color.black.dark1}>
       <StyledWorthCard>
         <CardHeader>
           <div className='caption'>
@@ -28,7 +30,7 @@ const NetWorth = () => {
         <Spacer size='12px' />
         <CardHeader>
           <div className='caption'>
-            <QuaSignIcon />
+            <QuaIcon />
             <Spacer size='10px' horizontalSpace />
             <TextWrap fontSize='h3'>{`0 QUA`}</TextWrap>
           </div>

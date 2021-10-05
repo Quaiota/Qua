@@ -6,18 +6,21 @@ import SocialIcon from '../../atom/icons/SocialIcon';
 import Spacer from '../../atom/spacer/spacer';
 import TextWrap from '../../atom/typography/TextWrap';
 import breakpoint from '../../configs/breakpoint';
+import ConnectIcon from '../../atom/icons/ConnectIcon';
 
 export interface ISideNav {
   open: boolean;
 }
 const SideNav: React.FC<ISideNav> = ({ open }) => {
-  const initWidth = { maxWidth: '80px', opacity: 0 };
-  const maxWidth = { maxWidth: '268px', opacity: 1 };
-  const fullWidth = { maxWidth: `${breakpoint.tab}px`, opacity: 1 };
+  const initWidth = { maxWidth: '80px' };
+  const maxWidth = { maxWidth: '300px' };
+  const fullWidth = { maxWidth: `${breakpoint.mobile + 60}px` };
   const [windowW, setWindowW] = useState(0);
 
   useEffect(() => {
-    setWindowW(window.outerWidth);
+    window.addEventListener('resize', () => {
+      setWindowW(window.outerWidth);
+    });
   }, []);
   return (
     <StyledSideNav
@@ -48,7 +51,7 @@ const SideNav: React.FC<ISideNav> = ({ open }) => {
         </StyledSidebarItem>
       </StyledNavBox>
       <button className='connectbutton'>
-        <span>Connect apps</span>
+        <ConnectIcon /> <TextWrap fontSize='bodymd'>Connect apps</TextWrap>
       </button>
     </StyledSideNav>
   );
@@ -69,9 +72,11 @@ const StyledSideNav = styled(motion.section)<{ open: boolean }>`
   .connectbutton {
     position: absolute;
     width: 100%;
-    display: inline-block;
+    display: inline-flex;
     bottom: 0;
-    background: ${({ theme }) => theme.black.dark3};
+    justify-content: center;
+    column-gap: 12px;
+    background: ${({ theme }) => theme.black.dark1};
 
     border: none;
     left: 0;

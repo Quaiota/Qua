@@ -10,7 +10,7 @@ const Card: FC<ICard> = ({ color, children }) => {
 };
 
 const StyledCard = styled(motion.div)`
-  background: ${({ theme }) => theme.gradients.dark1};
+  background: ${({ theme, color }) => color ?? theme.gradients.dark1};
   border-radius: 24px;
   padding: 24px;
   width: 100%;

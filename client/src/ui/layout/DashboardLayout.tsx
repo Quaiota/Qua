@@ -5,7 +5,7 @@ import breakpoint from '../configs/breakpoint';
 import NetWorth from '../molecules/networth/NetWorth';
 import ProfileCard from '../molecules/profileCard/ProfileCard';
 import WalletList from '../molecules/walletList/WalletList';
-import HorizontalNav from '../organisms/horizontalNav';
+import HorizontalNav from '../organisms/horizontalNav/HorizontalNav';
 import SideNav from '../organisms/sideNav/SideNav';
 
 const DashboardLayout: React.FC = ({ children }) => {
@@ -16,7 +16,11 @@ const DashboardLayout: React.FC = ({ children }) => {
 
   return (
     <StyledDashboardLayout>
-      <HorizontalNav profileImage='' sidebarToggle={toggleSidebar} />
+      <HorizontalNav
+        sidebarOpen={toggle}
+        profileImage=''
+        sidebarToggle={toggleSidebar}
+      />
       <div className='wrapper'>
         <SideNav open={toggle} />
         <div className='containBox'>
@@ -39,8 +43,9 @@ export default DashboardLayout;
 const StyledDashboardLayout = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   overflow-y: hidden;
+  padding-top: 60px;
   background: ${({ theme }) => theme.black.matteblack};
 
   .wrapper {
@@ -64,13 +69,13 @@ const StyledDashboardLayout = styled.div`
       }
       .profile-info {
         padding-block: 1rem;
-        height: 100%;
         position: relative;
         width: 100%;
       }
     }
   }
   @media (min-width: ${breakpoint.desktop}px) {
+    height: 100vh;
     .wrapper {
       .containBox {
         flex-wrap: nowrap;

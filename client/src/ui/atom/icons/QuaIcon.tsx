@@ -1,4 +1,4 @@
-function QuaSignIcon(props: React.SVGProps<SVGSVGElement>) {
+function QuaIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={24}
@@ -18,4 +18,4 @@ function QuaSignIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default QuaSignIcon;
+export default QuaIcon;

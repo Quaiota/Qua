@@ -26,6 +26,7 @@ export const theme: Theme = {
     orange: '#FF9F5C',
     purple: '#5A68ED',
     cyan: '#6CE7EF',
+    yellow: '#F2C94C',
   },
   black: {
     matteblack: '#0E0F0F',

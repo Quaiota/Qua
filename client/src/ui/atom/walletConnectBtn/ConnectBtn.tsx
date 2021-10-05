@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button } from '../button/Button';
+import Button from '../button/Button';
 import SendIcon from '../icons/SendIcon';
 import TextWrap from '../typography/TextWrap';
 
