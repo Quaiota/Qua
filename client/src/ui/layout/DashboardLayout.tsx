@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { useState } from 'react';
 import Spacer from '../atom/spacer/spacer';
 import breakpoint from '../configs/breakpoint';
-import NetWorth from '../molecules/Networth/NetWorth';
-import ProfileCard from '../molecules/ProfileCard/ProfileCard';
-import WalletList from '../molecules/WalletList/WalletList';
-import HorizontalNav from '../organisms/HorizontalNav';
-import SideNav from '../organisms/SideNav/SideNav';
+import NetWorth from '../molecules/networth/NetWorth';
+import ProfileCard from '../molecules/profileCard/ProfileCard';
+import WalletList from '../molecules/walletList/WalletList';
+import HorizontalNav from '../organisms/horizontalNav';
+import SideNav from '../organisms/sideNav/SideNav';
 
 const DashboardLayout: React.FC = ({ children }) => {
   const [toggle, setToggle] = useState(true);

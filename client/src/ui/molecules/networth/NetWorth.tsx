@@ -9,7 +9,7 @@ import SendIcon from '../../atom/icons/SendIcon';
 import SwapIcon from '../../atom/icons/SwapIcon';
 import NetWorthBtn from '../../atom/NetWorthBtn';
 import Spacer from '../../atom/spacer/spacer';
-import TextWrap from '../../atom/Typography/TextWrap';
+import TextWrap from '../../atom/typography/TextWrap';
 
 const NetWorth = () => {
   return (

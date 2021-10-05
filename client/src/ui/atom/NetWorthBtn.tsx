@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import TextWrap from './Typography/TextWrap';
+import TextWrap from './typography/TextWrap';
 
 export interface INetWorthBtn {
   text: string;

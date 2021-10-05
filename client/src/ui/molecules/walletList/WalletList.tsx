@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ChevronDown from '../../atom/icons/ChevronDown';
 import ChevronUp from '../../atom/icons/ChevronUp';
-import TextWrap from '../../atom/Typography/TextWrap';
+import TextWrap from '../../atom/typography/TextWrap';
 import ConnectBtn from '../../atom/walletConnectBtn/ConnectBtn';
 
 const WalletList: React.FC = () => {

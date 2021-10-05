@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
-import { Profilecard } from '../UI/molecules/ProfileCard/Card.stories';
+import { Profilecard } from '../ui/molecules/profileCard/Card.stories';
 const ConstructionSite = () => {
   return (
     <StyleContent>

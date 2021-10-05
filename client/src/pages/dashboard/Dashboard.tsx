@@ -2,7 +2,7 @@ import { observer } from 'mobx-react';
 import { useStore } from '../../App';
 import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
-import DashboardLayout from '../../UI/Layout/DashboardLayout';
+import DashboardLayout from '../../ui/layout/DashboardLayout';
 
 const Dashboard = observer(() => {
   const store = useStore().userStore;

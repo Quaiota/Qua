@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { Button } from '../../atom/Button/Button';
+import { Button } from '../../atom/button/Button';
 import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Spacer from '../../atom/spacer/spacer';
-import TextWrap from '../../atom/Typography/TextWrap';
+import TextWrap from '../../atom/typography/TextWrap';
 import breakpoint from '../../configs/breakpoint';
 export interface IProfileCard {
   src?: string;

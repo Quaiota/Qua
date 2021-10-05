@@ -1,12 +1,12 @@
 import { Web3ReactProvider } from '@web3-react/core';
 import { createContext, useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ProtectedRoute from './Auth/ProtectedRoute';
-import { RootStore } from './Mobx/rootStore';
-import { iStore } from './Mobx/store_interface';
+import ProtectedRoute from './auth/ProtectedRoute';
+import { RootStore } from './mobx/rootStore';
+import { iStore } from './mobx/store_interface';
 
-import Dashboard from './Pages/dashboard/Dashboard';
-import Home from './Pages/Home';
+import Dashboard from './pages/dashboard/Dashboard';
+import Home from './pages/Home';
 // @ts-ignore
 function getLibrary(provider, connector) {
   // @ts-ignore

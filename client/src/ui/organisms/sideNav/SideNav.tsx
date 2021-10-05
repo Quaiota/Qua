@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import SearchIcon from '../../atom/icons/SearchIcon';
 import SocialIcon from '../../atom/icons/SocialIcon';
 import Spacer from '../../atom/spacer/spacer';
-import TextWrap from '../../atom/Typography/TextWrap';
+import TextWrap from '../../atom/typography/TextWrap';
 import breakpoint from '../../configs/breakpoint';
 
 export interface ISideNav {

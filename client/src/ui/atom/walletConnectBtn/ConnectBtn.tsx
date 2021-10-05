@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { Button } from '../Button/Button';
+import { Button } from '../button/Button';
 import SendIcon from '../icons/SendIcon';
-import TextWrap from '../Typography/TextWrap';
+import TextWrap from '../typography/TextWrap';
 
 const ConnectBtn = () => {
   return (
