@@ -7,10 +7,10 @@ import { useStore } from '../../../App';
 import { useHistory } from 'react-router-dom';
 
 export interface IHorizontalNav {
-  sidebarToggle: () => void;
+  sidebarToggle?: () => void;
   title?: string;
   profileImage: string;
-  sidebarOpen: boolean;
+  sidebarOpen?: boolean;
 }
 
 const HorizontalNav: React.FC<IHorizontalNav> = ({
@@ -29,17 +29,20 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className='logo'>
-        <button onClick={sidebarToggle} className='sidebar-toggler'>
-          {sidebarOpen ? <CloseIcon /> : <Menubar />}
+        <button
+          onClick={sidebarToggle && sidebarToggle}
+          className='sidebar-toggler'>
+          {!!sidebarOpen && sidebarOpen ? <CloseIcon /> : <Menubar />}
         </button>
         {title ? (
-          <h1>title</h1>
+          <h1>{title}</h1>
         ) : (
           <h1>
             Qua <span></span>
           </h1>
         )}
       </div>
+
       <CircleFrame onClick={logout} circleSize='sm' image={profileImage} />
     </StyledNav>
   );

@@ -8,7 +8,6 @@ const Dashboard = observer(() => {
     <DashboardLayout>
       <MainBox>
         <LineChart />
-        <LineChart />
       </MainBox>
     </DashboardLayout>
   );

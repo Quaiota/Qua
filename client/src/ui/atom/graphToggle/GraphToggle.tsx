@@ -1,6 +1,5 @@
 import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
 import QuaIcon from '../icons/QuaIcon';
 import TextWrap from '../typography/TextWrap';
 

@@ -1,27 +1,22 @@
-import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
-import { Profilecard } from '../ui/molecules/profileCard/Card.stories';
+import { useState } from 'react';
+import Modal from '../ui/organisms/modal/Modal';
 const ConstructionSite = () => {
+  const [show, setShow] = useState(false);
+
+  const toggleModal = () => {
+    setShow(!show);
+  };
   return (
     <StyleContent>
-      <StyledNav></StyledNav>
-      <section className='section'>
-        <StyledSidebar></StyledSidebar>
-        <div className='content'>
-          <motion.div initial={init} animate={animate}>
-            <Profilecard />
-          </motion.div>
+      <button onClick={toggleModal}>open modal</button>
+      <Modal show={show} close={toggleModal}>
+        <div className='display'>
+          <h1>Hello world</h1>
         </div>
-      </section>
+      </Modal>
     </StyleContent>
   );
-};
-
-const init = {
-  opacity: 0,
-};
-const animate = {
-  opacity: 1,
 };
 
 const StyleContent = styled.div`

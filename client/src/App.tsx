@@ -8,6 +8,10 @@ import { iStore } from './mobx/store_interface';
 
 import Dashboard from './pages/dashboard/Dashboard';
 import Home from './pages/Home';
+import OnBoard from './pages/onboarding';
+import SecureAccount from './pages/onboarding/SecureAccount';
+import VerifyPassword from './pages/onboarding/VerifyPassword';
+import SocialWall from './pages/Social/SocialWall';
 // @ts-ignore
 function getLibrary(provider, connector) {
   // @ts-ignore
@@ -25,7 +29,11 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Switch>
-            <ProtectedRoute path='/dashboard' component={Dashboard} />
+            <ProtectedRoute exact path='/dashboard' component={Dashboard} />
+            <ProtectedRoute exact path='/social' component={SocialWall} />
+            <Route path='/onboarding/secure' component={SecureAccount} />
+            <Route path='/onboarding/verify' component={VerifyPassword} />
+            <Route exact path='/onboarding' component={OnBoard} />
             <Route exact path='/' component={Home} />
           </Switch>
         </BrowserRouter>

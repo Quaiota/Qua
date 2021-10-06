@@ -7,6 +7,7 @@ import Spacer from '../../atom/spacer/spacer';
 import TextWrap from '../../atom/typography/TextWrap';
 import breakpoint from '../../configs/breakpoint';
 import ConnectIcon from '../../atom/icons/ConnectIcon';
+import { Link } from 'react-router-dom';
 
 export interface ISideNav {
   open: boolean;
@@ -51,7 +52,7 @@ const SideNav: React.FC<ISideNav> = ({ open }) => {
         )}
         <Spacer size='1rem' />
         {/* sidebar items */}
-        <StyledSidebarItem>
+        <StyledSidebarItem to='/social'>
           <SocialIcon /> {open && <TextWrap fontSize='bodymd'>Social</TextWrap>}
         </StyledSidebarItem>
       </StyledNavBox>
@@ -100,11 +101,15 @@ const StyledSideNav = styled(motion.section)<{ open: boolean }>`
 
 const StyledNavBox = styled.div``;
 
-const StyledSidebarItem = styled(motion.div)`
+const StyledSidebarItem = styled(Link)`
   padding: 1rem;
   color: ${({ theme }) => theme.primary.white};
   display: flex;
   align-items: center;
+  transition: all 0.23s ease-in;
+  :hover {
+    background: ${({ theme }) => theme.black.dark2};
+  }
   p {
     padding-left: 22px;
   }

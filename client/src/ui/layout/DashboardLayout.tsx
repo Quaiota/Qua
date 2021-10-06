@@ -9,7 +9,7 @@ import HorizontalNav from '../organisms/dashboardhorizontalNav/HorizontalNav';
 import SideNav from '../organisms/dashboardSideNav/SideNav';
 
 const DashboardLayout: React.FC = ({ children }) => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const toggleSidebar = () => {
     setToggle((prev) => !prev);
   };

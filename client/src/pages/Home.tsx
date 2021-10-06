@@ -8,8 +8,8 @@ const Home = memo(() => {
   const store = useStore().userStore;
   const setLogin = async () => {
     store.getAuth(true).then(() => appHistory.push('/dashboard'));
-    console.log(store.auth);
   };
+
   return (
     <MainBox>
       <button onClick={setLogin}>login in</button>
@@ -21,8 +21,12 @@ const MainBox = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 20px auto;
-  background: #fafafa;
+  background: white;
+  height: 90vh;
   padding: 1.5rem;
+  .display {
+    width: 500px;
+  }
 `;
 
 export default Home;
