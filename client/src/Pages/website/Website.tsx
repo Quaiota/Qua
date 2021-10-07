@@ -1,11 +1,11 @@
-import styled from '@emotion/styled'
-import Logo from '../../UI/atom/icons/Logo'
+import styled from '@emotion/styled';
+import Logo from '../../ui/atom/logo/Logo';
 
 const Website = () => {
   return (
     <Container>
       <Nav>
-        <Logo size="lg" />
+        <Logo size='lg' />
       </Nav>
       <Main>
         <SectionOne>
@@ -27,10 +27,10 @@ const Website = () => {
         </SectionOne>
       </Main>
     </Container>
-  )
-}
+  );
+};
 
-export default Website
+export default Website;
 
 const Nav = styled.nav`
   background: transparent;
@@ -38,19 +38,19 @@ const Nav = styled.nav`
   width: 100%;
 
   padding: 24px 8rem 24px 8rem;
-`
+`;
 
 const Container = styled.div`
   background: ${({ theme }) => theme.black.matteblack};
   color: ${({ theme }) => theme.primary.sea3};
   height: 100vh;
-`
+`;
 
-const Main = styled.main``
+const Main = styled.main``;
 
 const SectionOne = styled.section`
   display: flex;
-`
+`;
 
 const AsideLeft = styled.aside`
   display: flex;
@@ -71,12 +71,12 @@ const AsideLeft = styled.aside`
     width: 500px;
     opacity: 0.8;
   }
-`
+`;
 
 const Wrapper = styled.div`
   display: flex;
   padding-top: 2rem;
-`
+`;
 
 const CTA = styled.button`
   border: none;
@@ -88,7 +88,7 @@ const CTA = styled.button`
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-`
+`;
 
 const Button = styled.button`
   border: none;
@@ -102,10 +102,10 @@ const Button = styled.button`
   font-weight: 100;
   text-decoration: underline;
   cursor: pointer;
-`
+`;
 
 const AsideRight = styled.aside`
   background-color: ${({ theme }) => theme.primary.mint1};
   height: 800px;
   width: 100%;
-`
+`;
