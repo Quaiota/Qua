@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@emotion/react';
-import { theme } from './UI/configs/theme';
+import { theme } from './ui/configs/theme';
 
 ReactDOM.render(
   <React.StrictMode>
