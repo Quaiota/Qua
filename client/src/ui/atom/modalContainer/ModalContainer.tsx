@@ -38,7 +38,7 @@ const StyledModalbox = styled.div`
     width: 100%;
     border-radius: 36px;
     padding: 1.5rem;
-    background: ${({ theme }) => theme.primary.white + 'e1'};
+    background: ${({ theme }) => theme.primary.white};
   }
 `;
 

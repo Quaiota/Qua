@@ -24,7 +24,7 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
   const history = useHistory();
   const logout = () => {
     store.getAuth(false);
-    history.replace('/');
+    history.replace('/onboarding/verify');
   };
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

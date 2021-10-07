@@ -8,6 +8,7 @@ export interface IButton extends React.HTMLAttributes<HTMLButtonElement> {
   textColor?: string;
   disabled?: boolean;
   type?: 'button' | 'reset' | 'submit' | undefined;
+  bold?: 'bold' | 'bolder' | 'normal' | '500' | 'lighter';
 }
 
 const Button: React.FC<IButton> = ({ children, ...rest }) => {
@@ -25,11 +26,12 @@ export const StyledButton = styled.button<IButton>`
   line-height: 1.375rem;
   letter-spacing: 0.15px;
   border: none;
-  color: ${({ theme }) => theme.primary.white};
+  color: ${({ theme, textColor }) => textColor ?? theme.primary.white};
   background: rgba(255, 255, 255, 0.08);
   border-radius: 50px;
   padding: 0.75rem 1rem;
   transition: all 0.23s ease-in;
+  font-weight: ${({ bold }) => bold ?? 'normal'};
 
   ${({ btnType }) => btnType === 'transparent' && transparent}
   ${({ btnType, theme, bgColor }) =>

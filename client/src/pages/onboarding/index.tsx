@@ -9,20 +9,18 @@ import breakpoint from '../../ui/configs/breakpoint';
 import InputField from '../../ui/molecules/inputField/InputField';
 import Modal from '../../ui/organisms/modal/Modal';
 
-const OnBoard: React.FC = () => {
-  const [show, setShow] = useState(false);
+const OnBoard: React.FC<{ toggleModal: () => void; show: boolean }> = ({
+  show,
+  toggleModal,
+}) => {
   const history = useHistory();
   const color = useTheme();
-  const toggleModal = () => {
-    setShow(!show);
-  };
 
   const handleSubmit = () => {
     history.push('/onboarding/secure');
   };
   return (
-    <div style={{ background: 'brown', height: '100vh' }}>
-      <Button onClick={toggleModal}>open modal</Button>
+    <div>
       <Modal show={show} close={toggleModal} closeOnBackgroundClick={false}>
         <StyledContent onSubmit={handleSubmit}>
           <div className='box'>

@@ -37,7 +37,8 @@ function App() {
             <Route path='/onboarding/secure' component={SecureAccount} />
             <Route path='/onboarding/verify' component={VerifyPassword} />
             <Route exact path='/onboarding' component={OnBoard} />
-            <Route exact path='/' component={Website} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/landing' component={Website} />
           </Switch>
         </BrowserRouter>
       </Web3ReactProvider>
