@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useHistory } from 'react-router';
@@ -10,12 +9,15 @@ import breakpoint from '../../ui/configs/breakpoint';
 import { StyledInfo, StyledInput } from './SecureAccount';
 import PadLockIcon from '../../ui/atom/icons/PadLockIcon';
 import { useStore } from '../../App';
+import useInputRef from '../../hooks/inputRef';
 
 const VerifyPassword = () => {
   const [password, setPassword] = useState('');
   const [formReady, setFormReady] = useState(false);
   const store = useStore().userStore;
   const history = useHistory();
+
+  const { inputRef } = useInputRef();
 
   const enableBtn = () => !!password && password.length >= 8;
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,8 +35,8 @@ const VerifyPassword = () => {
   return (
     <StyledVerify>
       <form onSubmit={handlSubmit}>
-        <div>
-          <PadLockIcon /> <Spacer horizontalSpace size='0px' />
+        <div className='padlock-box'>
+          <PadLockIcon />
           <TextWrap fontSize='h2'>Security Verification</TextWrap>
         </div>
         <Spacer size='2rem' />
@@ -50,6 +52,7 @@ const VerifyPassword = () => {
               type='password'
               value={password}
               onChange={handleChange}
+              ref={inputRef}
             />
           </StyledInput>
           <Spacer size='1rem' />
@@ -86,7 +89,11 @@ const StyledVerify = styled.div`
     width: 100%;
     margin: 0 auto;
     margin-top: 10vh;
-
+    .padlock-box {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
     .btn-box {
       padding: 1rem 0;
       padding-top: 1.2rem;

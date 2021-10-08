@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useHistory } from 'react-router';
+import useInputRef from '../../hooks/inputRef';
 import Button from '../../ui/atom/button/Button';
 import InfoIcon from '../../ui/atom/icons/InfoIcon';
 import Spacer from '../../ui/atom/spacer/spacer';
@@ -18,6 +19,8 @@ const SecureAccount = () => {
     setPassword(event.target.value.trim());
     setFormReady(enableBtn());
   };
+
+  const { inputRef } = useInputRef();
 
   const handlSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -76,6 +79,7 @@ const SecureAccount = () => {
               type='password'
               value={password}
               onChange={handleChange}
+              ref={inputRef}
             />
           </StyledInput>
         </div>

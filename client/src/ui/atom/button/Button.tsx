@@ -52,6 +52,8 @@ export const StyledButton = styled.button<IButton>`
         background: ${bgColor ? bgColor + '2a' : theme.primary.white + '2f'};
       }
     `}
+
+  cursor: pointer;
 `;
 
 export default Button;

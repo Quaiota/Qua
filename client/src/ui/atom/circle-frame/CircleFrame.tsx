@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC } from 'react-router/node_modules/@types/react';
 
@@ -6,7 +7,7 @@ export interface ICircleFrame {
   icon?: string;
   border?: boolean;
   borderColor?: string;
-  circleSize: 'sm' | 'md';
+  circleSize: 'sm' | 'md' | 'lg';
   onClick?: () => void;
 }
 
@@ -26,9 +27,23 @@ const CircleFrame: FC<ICircleFrame> = ({ icon, image, ...rest }) => {
   );
 };
 
+const lg = css`
+  width: 6.25rem;
+  height: 6.25rem;
+`;
+const sm = css`
+  width: 28px;
+  height: 28px;
+`;
+const md = css`
+  width: 40px;
+  height: 40px;
+`;
+
 const Container = styled.div<ICircleFrame>`
-  width: ${(props) => (props.circleSize === 'sm' ? '28px' : '5rem')};
-  height: ${(props) => (props.circleSize === 'sm' ? '28px' : '5rem')};
+  ${sm}
+  ${(props) => props.circleSize === 'md' && md};
+  ${(props) => props.circleSize === 'lg' && lg};
 
   border: ${(props) =>
     props.border &&

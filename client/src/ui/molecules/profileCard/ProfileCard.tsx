@@ -13,7 +13,7 @@ const ProfileCard: React.FC<IProfileCard> = () => {
     <StyledCard>
       <div>
         <CircleFrame
-          circleSize='md'
+          circleSize='lg'
           image='https://images.unsplash.com/photo-1606590179266-8290574f18b7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
           border={true}
         />

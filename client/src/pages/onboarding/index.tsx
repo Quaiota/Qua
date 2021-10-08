@@ -1,7 +1,8 @@
 import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
+import useInputRef from '../../hooks/inputRef';
 import Button from '../../ui/atom/button/Button';
 import Spacer from '../../ui/atom/spacer/spacer';
 import TextWrap from '../../ui/atom/typography/TextWrap';
@@ -16,6 +17,7 @@ const OnBoard: React.FC<{ toggleModal: () => void; show: boolean }> = ({
   const history = useHistory();
   const color = useTheme();
 
+  const { inputRef } = useInputRef();
   const handleSubmit = () => {
     history.push('/onboarding/secure');
   };
@@ -33,6 +35,7 @@ const OnBoard: React.FC<{ toggleModal: () => void; show: boolean }> = ({
             name='fullname'
             label='Full Name'
             placeholder='James Bond'
+            ref={inputRef}
           />
           <Spacer size='1rem' />
           <InputField
@@ -57,7 +60,6 @@ export default OnBoard;
 
 const StyledContent = styled.form`
   padding-inline: 0.3rem;
-  padding-block: 1.3rem;
   max-width: 600px;
   width: 100%;
 
@@ -66,9 +68,8 @@ const StyledContent = styled.form`
     justify-content: center;
   }
 
-  @media (min-width: ${breakpoint.desktop}px) {
-    padding-inline: 1rem;
-    padding-block: 2.5rem;
+  @media (min-width: ${breakpoint.tab}px) {
+    width: 100%;
     width: 417px;
   }
 `;

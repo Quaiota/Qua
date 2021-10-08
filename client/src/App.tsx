@@ -5,15 +5,15 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import GlobalStyles from './GlobalStyle';
 import { RootStore } from './mobx/rootStore';
 import { iStore } from './mobx/store_interface';
+import ConstructionSite from './pages/ConstructionSite';
 
 import Dashboard from './pages/dashboard/Dashboard';
+import Settings from './pages/dashboard/Settings';
 import Home from './pages/Home';
 import OnBoard from './pages/onboarding';
 import SecureAccount from './pages/onboarding/SecureAccount';
 import VerifyPassword from './pages/onboarding/VerifyPassword';
 import SocialWall from './pages/Social/SocialWall';
-
-import Website from './Pages/website/Website';
 
 // @ts-ignore
 function getLibrary(provider, connector) {
@@ -34,11 +34,16 @@ function App() {
           <Switch>
             <ProtectedRoute exact path='/dashboard' component={Dashboard} />
             <ProtectedRoute exact path='/social' component={SocialWall} />
+            <ProtectedRoute
+              exact
+              path='/dashboard/settings'
+              component={Settings}
+            />
             <Route path='/onboarding/secure' component={SecureAccount} />
             <Route path='/onboarding/verify' component={VerifyPassword} />
             <Route exact path='/onboarding' component={OnBoard} />
+            <Route exact path='/play' component={ConstructionSite} />
             <Route exact path='/' component={Home} />
-            <Route exact path='/landing' component={Website} />
           </Switch>
         </BrowserRouter>
       </Web3ReactProvider>
