@@ -4,6 +4,8 @@ import Spacer from '../ui/atom/spacer/spacer';
 import TextWrap from '../ui/atom/typography/TextWrap';
 import PostHeader from '../ui/molecules/post/PostHeader';
 import ProfileHeader from '../ui/molecules/profileHeader/ProfileHeader';
+import SocialSideNav from '../ui/molecules/socialNav/SocialSideNav';
+import SocialTopNav from '../ui/molecules/socialNav/SocialTopNav';
 import Modal from '../ui/organisms/modal/Modal';
 
 const ConstructionSite = () => {
@@ -15,6 +17,12 @@ const ConstructionSite = () => {
   return (
     <StyleContent>
       {/* <button onClick={toggleModal}>open modal</button> */}
+
+      <SocialTopNav />
+      <Spacer size='3rem' />
+      <SocialSideNav />
+
+      <Spacer size='3rem' />
       <div className='box'>
         <ProfileHeader size='large' />
         <Spacer size='2rem' />
@@ -32,6 +40,7 @@ const ConstructionSite = () => {
           </TextWrap>
         </div>
       </div>
+
       <Modal open={show} close={toggleModal}>
         <div className='display'>
           <h1>Hello world</h1>
@@ -46,7 +55,7 @@ const StyleContent = styled.div`
   min-height: 90vh;
   background: gray;
   .box {
-    max-width: 500px;
+    max-width: 540px;
     margin: 0 auto;
   }
 `;

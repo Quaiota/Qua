@@ -67,7 +67,7 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
 
 export default HorizontalNav;
 
-const StyledDropdown = styled(motion.div)`
+export const StyledDropdown = styled(motion.div)`
   position: absolute;
   top: 65px;
   right: 0.7rem;

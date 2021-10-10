@@ -103,10 +103,15 @@ const StyledProfileHeaderLarge = styled.div`
         }
       }
       .detail {
+        width: fit-content;
         .name {
           display: flex;
           column-gap: 12px;
           padding-bottom: 8px;
+          justify-content: safe;
+          p {
+            width: fit-content;
+          }
         }
       }
     }
@@ -153,6 +158,7 @@ const StyledProfileHeaderWrapper = styled.div`
       }
     }
     .detail {
+      width: fit-content;
       .name {
         display: flex;
         column-gap: 12px;

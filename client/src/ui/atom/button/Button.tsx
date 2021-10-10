@@ -52,6 +52,12 @@ export const StyledButton = styled.button<IButton>`
       background: ${bgColor ? bgColor : theme.primary.white + '21'};
       :hover {
         background: ${bgColor ? bgColor + '2a' : theme.primary.white + '2f'};
+        color: ${bgColor ? bgColor : theme.primary.white};
+      }
+
+      :disabled {
+        background: ${bgColor ? bgColor + '33' : theme.primary.white + '22'};
+        color: ${theme.black.dark1 + '55'};
       }
     `}
 

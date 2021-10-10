@@ -54,6 +54,7 @@ const MainBox = styled.div`
   @media (min-width: ${breakpoint.tab}px) {
     padding: 1rem;
     flex-wrap: nowrap;
+    justify-content: center;
   }
 `;
 
