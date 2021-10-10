@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
-import { useState, ChangeEvent, FormEvent, FormEventHandler } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import useInputRef from '../../../hooks/inputRef';
 import Button from '../../../ui/atom/button/Button';
 import PadLockIcon from '../../../ui/atom/icons/PadLockIcon';

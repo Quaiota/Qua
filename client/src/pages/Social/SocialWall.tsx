@@ -1,4 +1,3 @@
-import TextWrap from '../../ui/atom/typography/TextWrap';
 import SocialLayout from '../../ui/layout/SocialLayout';
 import Post from '../../ui/organisms/post/Post';
 

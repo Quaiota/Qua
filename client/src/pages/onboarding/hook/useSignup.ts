@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { baseURL } from '../../../api/baseApi';
 import useInputRef from '../../../hooks/inputRef';
-import Axios from 'axios';
 import * as yup from 'yup';
 
 const validateSignup = yup.object().shape({
@@ -31,7 +30,7 @@ const useSignup = () => {
     validateSignup.isValid(signUp).then((state) => setIsReady(state));
   };
 
-  const url = baseURL + '/signup';
+  // const url = baseURL + '/signup';
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Axios.post(url, { data: signUp }).then((res) => console.log({ res }));
