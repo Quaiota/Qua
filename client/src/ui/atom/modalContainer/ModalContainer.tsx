@@ -3,12 +3,18 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import CloseIcon from '../icons/Close';
 
-const ModalContainer: React.FC<{ closeAction: () => void }> = ({
+export interface IModalContainer {
+  closeAction: () => void;
+  backgroundColor?: string | undefined;
+}
+
+const ModalContainer: React.FC<IModalContainer> = ({
   children,
   closeAction,
+  backgroundColor,
 }) => {
   return (
-    <StyledModalbox>
+    <StyledModalbox backgroundColor={backgroundColor}>
       <div className='content-wrapper'>{children}</div>
       <section>
         <StyledModalCloseBtn
@@ -25,7 +31,7 @@ const ModalContainer: React.FC<{ closeAction: () => void }> = ({
 
 export default ModalContainer;
 
-const StyledModalbox = styled.div`
+const StyledModalbox = styled.div<{ backgroundColor: string | undefined }>`
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -38,7 +44,8 @@ const StyledModalbox = styled.div`
     width: 100%;
     border-radius: 36px;
     padding: 1.5rem;
-    background: ${({ theme }) => theme.primary.white};
+    background: ${({ theme, backgroundColor }) =>
+      backgroundColor ?? theme.primary.white};
   }
 `;
 

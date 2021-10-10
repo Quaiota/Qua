@@ -23,7 +23,7 @@ const OnBoard: React.FC<{ toggleModal: () => void; show: boolean }> = ({
   };
   return (
     <div>
-      <Modal show={show} close={toggleModal} closeOnBackgroundClick={false}>
+      <Modal open={show} close={toggleModal} closeOnBackgroundClick={false}>
         <StyledContent onSubmit={handleSubmit}>
           <div className='box'>
             <TextWrap fontSize='h2' bold='bold' color={color.black.dark4}>

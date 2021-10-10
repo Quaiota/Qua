@@ -3,23 +3,27 @@ import ModalBackground from '../../atom/ModalBackground/ModalBackground';
 import ModalContainer from '../../atom/modalContainer/ModalContainer';
 
 export interface IModal {
-  show: boolean;
+  open: boolean;
   closeOnBackgroundClick?: boolean;
   close: () => void;
+  backgroundColor?: string;
 }
 
 const Modal: React.FC<IModal> = ({
-  show,
+  open,
   children,
   closeOnBackgroundClick,
   close,
+  backgroundColor,
 }) => {
   return (
     <ModalBackground
-      show={show}
+      open={open}
       close={close}
       closeOnBackgroundClick={closeOnBackgroundClick}>
-      <ModalContainer closeAction={close}>{children}</ModalContainer>
+      <ModalContainer backgroundColor={backgroundColor} closeAction={close}>
+        {children}
+      </ModalContainer>
     </ModalBackground>
   );
 };

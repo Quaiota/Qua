@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import React from 'react';
 
 export interface IModalBackground {
-  show: boolean;
+  open: boolean;
   closeOnBackgroundClick?: boolean;
   close: Function;
 }
 
 const ModalBackground: React.FC<IModalBackground> = ({
   children,
-  show,
+  open,
   close,
   closeOnBackgroundClick = true,
 }) => {
@@ -26,7 +26,7 @@ const ModalBackground: React.FC<IModalBackground> = ({
 
   return (
     <StyledModalBg
-      animate={show ? { opacity: 1, display: 'flex' } : initState}
+      animate={open ? { opacity: 1, display: 'flex' } : initState}
       id='modalbg'
       initial={initState}
       onClick={closeOnBackgroundClick ? closeModal : () => {}}>

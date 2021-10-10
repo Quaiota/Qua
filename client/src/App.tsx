@@ -8,7 +8,7 @@ import { iStore } from './mobx/store_interface';
 import ConstructionSite from './pages/ConstructionSite';
 
 import Dashboard from './pages/dashboard/Dashboard';
-import Settings from './pages/dashboard/Settings';
+import Settings from './pages/dashboard/dashboardSettings/Settings';
 import Home from './pages/Home';
 import OnBoard from './pages/onboarding';
 import SecureAccount from './pages/onboarding/SecureAccount';

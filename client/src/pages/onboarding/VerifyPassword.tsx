@@ -2,14 +2,14 @@ import styled from '@emotion/styled';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useHistory } from 'react-router';
 import Button from '../../ui/atom/button/Button';
-import InfoIcon from '../../ui/atom/icons/InfoIcon';
 import Spacer from '../../ui/atom/spacer/spacer';
 import TextWrap from '../../ui/atom/typography/TextWrap';
 import breakpoint from '../../ui/configs/breakpoint';
-import { StyledInfo, StyledInput } from './SecureAccount';
 import PadLockIcon from '../../ui/atom/icons/PadLockIcon';
 import { useStore } from '../../App';
 import useInputRef from '../../hooks/inputRef';
+import BasicInput from '../../ui/molecules/inputField/BasicInput';
+import Info from '../../ui/molecules/info/Info';
 
 const VerifyPassword = () => {
   const [password, setPassword] = useState('');
@@ -42,28 +42,18 @@ const VerifyPassword = () => {
         <Spacer size='2rem' />
 
         <div className='box'>
-          <StyledInput>
-            <label htmlFor='password'>
-              <TextWrap fontSize='bodysm'>Enter password</TextWrap>
-            </label>
-            <input
-              id='password'
-              name='password'
-              type='password'
-              value={password}
-              onChange={handleChange}
-              ref={inputRef}
-            />
-          </StyledInput>
+          <BasicInput
+            label='Enter password'
+            id='password'
+            name='password'
+            type='password'
+            value={password}
+            onChange={handleChange}
+            ref={inputRef}
+          />
+
           <Spacer size='1rem' />
-          <StyledInfo>
-            <div>
-              <InfoIcon />
-            </div>
-            <TextWrap fontSize='bodymd'>
-              Change your password frequently to protect your account
-            </TextWrap>
-          </StyledInfo>
+          <Info text='Change your password frequently to protect your account' />
         </div>
         <div className='btn-box'>
           <Button btnType='solid' type='submit' disabled={!formReady}>

@@ -1,16 +1,23 @@
 import styled from '@emotion/styled';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
-import Button from '../../ui/atom/button/Button';
-import ChevronLeftIcon from '../../ui/atom/icons/ChevronLeftIcon';
-import EyeIcon from '../../ui/atom/icons/EyeIcon';
-import Spacer from '../../ui/atom/spacer/spacer';
-import TextWrap from '../../ui/atom/typography/TextWrap';
-import breakpoint from '../../ui/configs/breakpoint';
-import DashboardLayout from '../../ui/layout/DashboardLayout';
-import SettingInput from '../../ui/molecules/inputField/SettingInput';
+import Button from '../../../ui/atom/button/Button';
+import ChevronLeftIcon from '../../../ui/atom/icons/ChevronLeftIcon';
+import EyeIcon from '../../../ui/atom/icons/EyeIcon';
+import Spacer from '../../../ui/atom/spacer/spacer';
+import TextWrap from '../../../ui/atom/typography/TextWrap';
+import breakpoint from '../../../ui/configs/breakpoint';
+import DashboardLayout from '../../../ui/layout/DashboardLayout';
+import SettingInput from '../../../ui/molecules/inputField/SettingInput';
+import PasswordModal from './PasswordModal';
 
 const Settings = () => {
   const history = useHistory();
+  const [isModal, setModal] = useState(false);
+
+  const closePasswordModal = () => {
+    setModal(false);
+  };
 
   return (
     <DashboardLayout>
@@ -58,7 +65,7 @@ const Settings = () => {
             <div>
               <TextWrap>Recovery seed phrase</TextWrap>
               <Spacer size='12px' />
-              <Button type='button'>
+              <Button onClick={() => setModal(true)} type='button'>
                 <EyeIcon /> &nbsp; Reveal
               </Button>
             </div>
@@ -68,6 +75,7 @@ const Settings = () => {
           </StyledSubmitBtn>
         </form>
       </StyledSettingsContainer>
+      <PasswordModal open={isModal} close={closePasswordModal} />
     </DashboardLayout>
   );
 };

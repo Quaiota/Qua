@@ -2,12 +2,14 @@ import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export interface IButton extends React.HTMLAttributes<HTMLButtonElement> {
+export interface IButton
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   btnType?: 'solid' | 'outlined' | 'transparent';
   bgColor?: string;
   textColor?: string;
-  disabled?: boolean;
-  type?: 'button' | 'reset' | 'submit' | undefined;
   bold?: 'bold' | 'bolder' | 'normal' | '500' | 'lighter';
 }
 

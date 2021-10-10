@@ -32,7 +32,7 @@ const ConstructionSite = () => {
           </TextWrap>
         </div>
       </div>
-      <Modal show={show} close={toggleModal}>
+      <Modal open={show} close={toggleModal}>
         <div className='display'>
           <h1>Hello world</h1>
         </div>

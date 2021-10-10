@@ -3,10 +3,11 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { useHistory } from 'react-router';
 import useInputRef from '../../hooks/inputRef';
 import Button from '../../ui/atom/button/Button';
-import InfoIcon from '../../ui/atom/icons/InfoIcon';
 import Spacer from '../../ui/atom/spacer/spacer';
 import TextWrap from '../../ui/atom/typography/TextWrap';
 import breakpoint from '../../ui/configs/breakpoint';
+import Info from '../../ui/molecules/info/Info';
+import BasicInput from '../../ui/molecules/inputField/BasicInput';
 
 const SecureAccount = () => {
   const [password, setPassword] = useState('');
@@ -60,28 +61,17 @@ const SecureAccount = () => {
           <TextWrap fontSize='bodymd'>
             Write, download, print, or copy it somewhere safe.
           </TextWrap>
-          <StyledInfo>
-            <div>
-              <InfoIcon />
-            </div>
-            <TextWrap fontSize='bodymd'>
-              You may loose your account forever if you loose your seed phrase
-            </TextWrap>
-          </StyledInfo>
+          <Info text='You may loose your account forever if you loose your seed phrase' />
           <Spacer size='3em' />
-          <StyledInput>
-            <label htmlFor='password'>
-              <TextWrap>Create a secure password</TextWrap>
-            </label>
-            <input
-              id='password'
-              name='password'
-              type='password'
-              value={password}
-              onChange={handleChange}
-              ref={inputRef}
-            />
-          </StyledInput>
+          <BasicInput
+            label='Create a secure password'
+            id='password'
+            name='password'
+            type='password'
+            value={password}
+            onChange={handleChange}
+            ref={inputRef}
+          />
         </div>
         <div className='btn-box'>
           <Button btnType='solid' type='submit' disabled={!formReady}>
@@ -94,25 +84,6 @@ const SecureAccount = () => {
 };
 
 export default SecureAccount;
-
-export const StyledInput = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 12px;
-  input {
-    border: none;
-    background: ${({ theme }) => theme.primary.white + '00'};
-    padding: 1rem 12px;
-    font-size: 1rem;
-    color: ${({ theme }) => theme.primary.white};
-
-    border-bottom: 1px ${({ theme }) => theme.primary.white + '1a'} solid;
-    &:focus {
-      border-bottom: 1px ${({ theme }) => theme.primary.white + '3a'} solid;
-      outline: none;
-    }
-  }
-`;
 
 const StyledSecureAccount = styled.div`
   height: 100%;
@@ -152,20 +123,5 @@ const StyledSecureAccount = styled.div`
     .box {
       border: none;
     }
-  }
-`;
-
-export const StyledInfo = styled.div`
-  padding: 12px;
-  background: ${({ theme }) => theme.primary.white + '1b'};
-  display: flex;
-  column-gap: 6px;
-  border-radius: 8px;
-  width: fit-content;
-  margin-block: 8px;
-  justify-content: center;
-  align-items: flex-start;
-  @media (min-width: ${breakpoint.tab}px) {
-    align-items: center;
   }
 `;
