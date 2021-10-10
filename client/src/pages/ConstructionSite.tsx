@@ -1,6 +1,13 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
+import Spacer from '../ui/atom/spacer/spacer';
+import TextWrap from '../ui/atom/typography/TextWrap';
+import PostHeader from '../ui/molecules/post/PostHeader';
+import ProfileHeader from '../ui/molecules/profileHeader/ProfileHeader';
+import SocialSideNav from '../ui/molecules/socialNav/SocialSideNav';
+import SocialTopNav from '../ui/molecules/socialNav/SocialTopNav';
 import Modal from '../ui/organisms/modal/Modal';
+
 const ConstructionSite = () => {
   const [show, setShow] = useState(false);
 
@@ -9,8 +16,32 @@ const ConstructionSite = () => {
   };
   return (
     <StyleContent>
-      <button onClick={toggleModal}>open modal</button>
-      <Modal show={show} close={toggleModal}>
+      {/* <button onClick={toggleModal}>open modal</button> */}
+
+      <SocialTopNav />
+      <Spacer size='3rem' />
+      <SocialSideNav />
+
+      <Spacer size='3rem' />
+      <div className='box'>
+        <ProfileHeader size='large' />
+        <Spacer size='2rem' />
+        <Spacer size='2rem' />
+        <div>
+          <ProfileHeader />
+          <PostHeader />
+          <Spacer size='1rem' />
+          <TextWrap fontSize='body'>
+            We need to move NFTs onto the layer 2 ecosystem to cut fees.
+            However, doing that *right* requires good cross-rollup portability
+            standards, so the ecosystem can avoid getting locked into one
+            particular L2. The NFT ecosystem is growing rapidly, and it’s a
+            significant part of the Ethereum chain’s gas consumption.
+          </TextWrap>
+        </div>
+      </div>
+
+      <Modal open={show} close={toggleModal}>
         <div className='display'>
           <h1>Hello world</h1>
         </div>
@@ -22,29 +53,11 @@ const ConstructionSite = () => {
 const StyleContent = styled.div`
   background: ${({ theme }) => theme.black.matteblack};
   min-height: 90vh;
-
-  .section {
-    display: flex;
-
-    .content {
-      display: block;
-      width: 100%;
-      padding: 15px;
-    }
+  background: gray;
+  .box {
+    max-width: 540px;
+    margin: 0 auto;
   }
-`;
-
-const StyledNav = styled.nav`
-  min-height: 45px;
-  padding: 10px;
-  background: ${({ theme }) => theme.black.dark4};
-`;
-
-const StyledSidebar = styled.section`
-  background: ${({ theme }) => theme.black.dark3};
-  display: inline-block;
-  min-width: 268px;
-  height: 70vh;
 `;
 
 export default ConstructionSite;

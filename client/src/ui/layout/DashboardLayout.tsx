@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import Spacer from '../atom/spacer/spacer';
 import breakpoint from '../configs/breakpoint';
-import NetWorth from '../molecules/networth/NetWorth';
-import ProfileCard from '../molecules/profileCard/ProfileCard';
-import WalletList from '../molecules/walletList/WalletList';
 import HorizontalNav from '../organisms/dashboardhorizontalNav/HorizontalNav';
 import SideNav from '../organisms/dashboardSideNav/SideNav';
 
@@ -25,13 +21,6 @@ const DashboardLayout: React.FC = ({ children }) => {
         <SideNav open={toggle} />
         <div className='containBox'>
           <main>{children}</main>
-          <section className='profile-info'>
-            <ProfileCard />
-            <Spacer size='1rem' />
-            <NetWorth />
-
-            <WalletList />
-          </section>
         </div>
       </div>
     </StyledDashboardLayout>

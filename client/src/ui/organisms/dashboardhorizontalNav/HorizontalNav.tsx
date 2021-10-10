@@ -4,7 +4,8 @@ import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Menubar from '../../atom/icons/MenuBar';
 import CloseIcon from '../../atom/icons/Close';
 import { useStore } from '../../../App';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 export interface IHorizontalNav {
   sidebarToggle?: () => void;
@@ -20,11 +21,11 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
   sidebarOpen,
 }) => {
   const store = useStore().userStore;
-
+  const [dropdown, setDropdown] = useState(false);
   const history = useHistory();
   const logout = () => {
     store.getAuth(false);
-    history.replace('/');
+    history.replace('/onboarding/verify');
   };
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -43,12 +44,59 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
         )}
       </div>
 
-      <CircleFrame onClick={logout} circleSize='sm' image={profileImage} />
+      <div>
+        <CircleFrame
+          onClick={() => {
+            setDropdown((prev) => !prev);
+          }}
+          circleSize='sm'
+          image={profileImage}
+        />
+        <StyledDropdown
+          initial={{ opacity: 0 }}
+          animate={dropdown ? { opacity: 1 } : { opacity: 0 }}>
+          <Link to='/dashboard/settings'>Settings</Link>
+          <Link to='#' onClick={logout}>
+            Log out
+          </Link>
+        </StyledDropdown>
+      </div>
     </StyledNav>
   );
 };
 
 export default HorizontalNav;
+
+export const StyledDropdown = styled(motion.div)`
+  position: absolute;
+  top: 65px;
+  right: 0.7rem;
+  border-radius: 34px;
+  box-shadow: 0px 10px 15px ${({ theme }) => theme.black.matteblack + '6e'};
+  backdrop-filter: blur(40px);
+  width: fit-content;
+  max-width: 145px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: ${({ theme }) => theme.black.dark2 + 'ee'};
+  a {
+    padding: 0.8rem 1rem;
+    padding-top: 12px;
+    padding-bottom: 21px;
+    padding-inline: 24px;
+    text-decoration: none;
+    display: inline-block;
+    color: ${({ theme }) => theme.primary.sea3};
+    background: ${({ theme }) => theme.black.dark2 + 'ee'};
+    width: 100%;
+    :hover {
+      background: red;
+      background: ${({ theme }) => theme.black.dark1 + 'de'};
+    }
+  }
+`;
 
 const StyledNav = styled(motion.nav)`
   position: fixed;

@@ -1,34 +1,53 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { FC } from 'react-router/node_modules/@types/react';
 
 export interface ICircleFrame {
   image?: string;
   icon?: string;
   border?: boolean;
   borderColor?: string;
-  circleSize: 'sm' | 'md';
+  circleSize: 'sm' | 'md' | 'lg';
   onClick?: () => void;
 }
 
-const CircleFrame: FC<ICircleFrame> = ({ icon, image, ...rest }) => {
-  const placeholder =
-    'https://images.unsplash.com/photo-1606590179266-8290574f18b7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+const CircleFrame: React.FC<ICircleFrame> = ({ icon, image, ...rest }) => {
   return (
     <Container {...rest}>
       {image ? (
         <img src={image} alt='display' />
       ) : (
-        <img src={placeholder} alt='display' />
+        <i className='fas fa-user'></i>
       )}
-      {/* // Todo: resolve to a better way to display icons  */}
-      {icon && icon}
     </Container>
   );
 };
 
+const lg = css`
+  width: 6.25rem;
+  height: 6.25rem;
+  .fas {
+    font-size: 4rem;
+  }
+`;
+const sm = css`
+  width: 28px;
+  height: 28px;
+  .fas {
+    font-size: 1rem;
+  }
+`;
+const md = css`
+  width: 40px;
+  height: 40px;
+  .fas {
+    font-size: 2rem;
+  }
+`;
+
 const Container = styled.div<ICircleFrame>`
-  width: ${(props) => (props.circleSize === 'sm' ? '28px' : '5rem')};
-  height: ${(props) => (props.circleSize === 'sm' ? '28px' : '5rem')};
+  ${sm}
+  ${(props) => props.circleSize === 'md' && md};
+  ${(props) => props.circleSize === 'lg' && lg};
 
   border: ${(props) =>
     props.border &&
@@ -39,9 +58,12 @@ const Container = styled.div<ICircleFrame>`
   overflow: hidden;
   object-fit: cover;
   object-position: center;
-  display: inline-block;
+  display: inline-flex;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
   background: ${({ theme }) => theme.gradients.light};
+  color: ${({ theme }) => theme.primary.white};
 
   img {
     width: 100%;

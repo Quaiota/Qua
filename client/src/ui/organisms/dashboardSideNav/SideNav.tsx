@@ -91,7 +91,7 @@ const StyledSideNav = styled(motion.section)<{ open: boolean }>`
     padding: 1rem;
   }
 
-  @media screen and (max-width: ${breakpoint.mobile}px) {
+  @media screen and (max-width: ${breakpoint.tab}px) {
     position: ${(props) => props.open && 'fixed'};
     z-index: 1100;
 

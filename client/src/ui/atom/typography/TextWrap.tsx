@@ -82,7 +82,7 @@ const bodySm = css`
 `;
 
 const Heading = styled.p<ITextWrap>`
-  color: ${(props) => props.color ?? props.theme.primary.white};
+  color: ${(props) => props.color ?? props.theme.primary.sea3};
 
   ${body}
   ${({ fontSize }) => fontSize === 'h1' && h1}

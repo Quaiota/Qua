@@ -1,10 +1,11 @@
-import React from 'react';
+import TextWrap from '../../ui/atom/typography/TextWrap';
 import SocialLayout from '../../ui/layout/SocialLayout';
+import Post from '../../ui/organisms/post/Post';
 
 const SocialWall = () => {
   return (
     <SocialLayout>
-      <h1>Hello world</h1>
+      <Post />
     </SocialLayout>
   );
 };

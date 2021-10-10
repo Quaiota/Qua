@@ -1,21 +1,23 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useHistory } from 'react-router';
 import Button from '../../ui/atom/button/Button';
-import InfoIcon from '../../ui/atom/icons/InfoIcon';
 import Spacer from '../../ui/atom/spacer/spacer';
 import TextWrap from '../../ui/atom/typography/TextWrap';
 import breakpoint from '../../ui/configs/breakpoint';
-import { StyledInfo, StyledInput } from './SecureAccount';
 import PadLockIcon from '../../ui/atom/icons/PadLockIcon';
 import { useStore } from '../../App';
+import useInputRef from '../../hooks/inputRef';
+import BasicInput from '../../ui/molecules/inputField/BasicInput';
+import Info from '../../ui/molecules/info/Info';
 
 const VerifyPassword = () => {
   const [password, setPassword] = useState('');
   const [formReady, setFormReady] = useState(false);
   const store = useStore().userStore;
   const history = useHistory();
+
+  const { inputRef } = useInputRef();
 
   const enableBtn = () => !!password && password.length >= 8;
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,34 +35,25 @@ const VerifyPassword = () => {
   return (
     <StyledVerify>
       <form onSubmit={handlSubmit}>
-        <div>
-          <PadLockIcon /> <Spacer horizontalSpace size='0px' />
+        <div className='padlock-box'>
+          <PadLockIcon />
           <TextWrap fontSize='h2'>Security Verification</TextWrap>
         </div>
         <Spacer size='2rem' />
 
         <div className='box'>
-          <StyledInput>
-            <label htmlFor='password'>
-              <TextWrap fontSize='bodysm'>Enter password</TextWrap>
-            </label>
-            <input
-              id='password'
-              name='password'
-              type='password'
-              value={password}
-              onChange={handleChange}
-            />
-          </StyledInput>
+          <BasicInput
+            label='Enter password'
+            id='password'
+            name='password'
+            type='password'
+            value={password}
+            onChange={handleChange}
+            ref={inputRef}
+          />
+
           <Spacer size='1rem' />
-          <StyledInfo>
-            <div>
-              <InfoIcon />
-            </div>
-            <TextWrap fontSize='bodymd'>
-              Change your password frequently to protect your account
-            </TextWrap>
-          </StyledInfo>
+          <Info text='Change your password frequently to protect your account' />
         </div>
         <div className='btn-box'>
           <Button btnType='solid' type='submit' disabled={!formReady}>
@@ -86,7 +79,11 @@ const StyledVerify = styled.div`
     width: 100%;
     margin: 0 auto;
     margin-top: 10vh;
-
+    .padlock-box {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
     .btn-box {
       padding: 1rem 0;
       padding-top: 1.2rem;

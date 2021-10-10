@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import TextWrap from '../../atom/typography/TextWrap';
-export interface IInputFieid extends React.HTMLAttributes<HTMLInputElement> {
+
+export interface IInputFieid
+  extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   label?: string;
   name: string;
   atSign?: boolean;
@@ -30,6 +35,7 @@ const StyledInputField = styled.div`
   color: gray;
   border-bottom: 1px gray solid;
   padding-bottom: 5px;
+  width: 100%;
   label {
     text-transform: capitalize;
     font-style: normal;

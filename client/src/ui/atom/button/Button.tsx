@@ -2,12 +2,15 @@ import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export interface IButton extends React.HTMLAttributes<HTMLButtonElement> {
+export interface IButton
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   btnType?: 'solid' | 'outlined' | 'transparent';
   bgColor?: string;
   textColor?: string;
-  disabled?: boolean;
-  type?: 'button' | 'reset' | 'submit' | undefined;
+  bold?: 'bold' | 'bolder' | 'normal' | '500' | 'lighter';
 }
 
 const Button: React.FC<IButton> = ({ children, ...rest }) => {
@@ -25,11 +28,12 @@ export const StyledButton = styled.button<IButton>`
   line-height: 1.375rem;
   letter-spacing: 0.15px;
   border: none;
-  color: ${({ theme }) => theme.primary.white};
+  color: ${({ theme, textColor }) => textColor ?? theme.primary.white};
   background: rgba(255, 255, 255, 0.08);
   border-radius: 50px;
   padding: 0.75rem 1rem;
   transition: all 0.23s ease-in;
+  font-weight: ${({ bold }) => bold ?? 'normal'};
 
   ${({ btnType }) => btnType === 'transparent' && transparent}
   ${({ btnType, theme, bgColor }) =>
@@ -48,8 +52,16 @@ export const StyledButton = styled.button<IButton>`
       background: ${bgColor ? bgColor : theme.primary.white + '21'};
       :hover {
         background: ${bgColor ? bgColor + '2a' : theme.primary.white + '2f'};
+        color: ${bgColor ? bgColor : theme.primary.white};
+      }
+
+      :disabled {
+        background: ${bgColor ? bgColor + '33' : theme.primary.white + '22'};
+        color: ${theme.black.dark1 + '55'};
       }
     `}
+
+  cursor: pointer;
 `;
 
 export default Button;
