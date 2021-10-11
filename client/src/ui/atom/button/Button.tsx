@@ -1,26 +1,26 @@
-import React from 'react';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+import React from 'react'
 
 export interface IButton
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  btnType?: 'solid' | 'outlined' | 'transparent';
-  bgColor?: string;
-  textColor?: string;
-  bold?: 'bold' | 'bolder' | 'normal' | '500' | 'lighter';
+  btnType?: 'solid' | 'outlined' | 'transparent'
+  bgColor?: string
+  textColor?: string
+  bold?: 'bold' | 'bolder' | 'normal' | '500' | 'lighter'
 }
 
 const Button: React.FC<IButton> = ({ children, ...rest }) => {
-  return <StyledButton {...rest}>{children}</StyledButton>;
-};
+  return <StyledButton {...rest}>{children}</StyledButton>
+}
 
 const transparent = css`
   border: none;
   background: transparent;
-`;
+`
 
 export const StyledButton = styled.button<IButton>`
   font-style: normal;
@@ -32,7 +32,6 @@ export const StyledButton = styled.button<IButton>`
   background: rgba(255, 255, 255, 0.08);
   border-radius: 50px;
   padding: 0.75rem 1rem;
-  transition: all 0.23s ease-in;
   font-weight: ${({ bold }) => bold ?? 'normal'};
 
   ${({ btnType }) => btnType === 'transparent' && transparent}
@@ -41,19 +40,12 @@ export const StyledButton = styled.button<IButton>`
     css`
       border: 1px ${bgColor ?? theme.primary.white + 'a1'} solid;
       background: ${bgColor ? bgColor + '01' : theme.primary.white + '01'};
-      :hover {
-        background: ${bgColor ? bgColor + '2a' : theme.primary.white + '2a'};
-      }
     `};
   ${({ btnType, theme, bgColor }) =>
     btnType === 'solid' &&
     css`
-      border: 1px ${bgColor ?? theme.primary.white + '00'} solid;
+      /* border: 1px ${bgColor ?? theme.primary.white + '00'} solid; */
       background: ${bgColor ? bgColor : theme.primary.white + '21'};
-      :hover {
-        background: ${bgColor ? bgColor + '2a' : theme.primary.white + '2f'};
-        color: ${bgColor ? bgColor : theme.primary.white};
-      }
 
       :disabled {
         background: ${bgColor ? bgColor + '33' : theme.primary.white + '22'};
@@ -62,6 +54,6 @@ export const StyledButton = styled.button<IButton>`
     `}
 
   cursor: pointer;
-`;
+`
 
-export default Button;
+export default Button
