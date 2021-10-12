@@ -1,41 +1,41 @@
-import { useTheme } from '@emotion/react';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useTheme } from '@emotion/react'
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import * as yup from 'yup'
 // import { baseURL } from '../../../api/baseApi';
-import useInputRef from '../../../hooks/inputRef';
-import * as yup from 'yup';
+import useInputRef from '../../../hooks/inputRef'
 
 const validateSignup = yup.object().shape({
   fullname: yup.string().required(),
-  handle: yup.string().required(),
-});
+  handle: yup.string().required()
+})
 
 const useSignup = () => {
-  const history = useHistory();
-  const color = useTheme();
-  const { inputRef } = useInputRef();
-  const [isReady, setIsReady] = useState(false);
+  const history = useHistory()
+  const color = useTheme()
+  const { inputRef } = useInputRef()
+  const [isReady, setIsReady] = useState(false)
   const initSignup = {
     fullname: '',
-    handle: '',
-  };
+    handle: ''
+  }
 
-  const [signUp, setSignUp] = useState(initSignup);
+  const [signUp, setSignUp] = useState(initSignup)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    setSignUp((prev) => ({ ...prev, [name]: value }));
+    event.preventDefault()
+    const { name, value } = event.target
+    setSignUp((prev) => ({ ...prev, [name]: value }))
 
-    validateSignup.isValid(signUp).then((state) => setIsReady(state));
-  };
+    validateSignup.isValid(signUp).then((state) => setIsReady(state))
+  }
 
   // const url = baseURL + '/signup';
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault()
     // Axios.post(url, { data: signUp }).then((res) => console.log({ res }));
-    if (isReady) history.push('/onboarding/secure');
-  };
+    if (isReady) history.push('/onboarding/secure')
+  }
 
   return {
     handleChange,
@@ -43,8 +43,8 @@ const useSignup = () => {
     color,
     inputRef,
     signUp,
-    isReady,
-  };
-};
+    isReady
+  }
+}
 
-export default useSignup;
+export default useSignup
