@@ -1,31 +1,31 @@
-import { observer } from 'mobx-react';
-import styled from '@emotion/styled';
-import DashboardLayout from '../../ui/layout/DashboardLayout';
-import LineChart from '../../ui/molecules/chart/LineChart';
-import Spacer from '../../ui/atom/spacer/spacer';
-import NetWorth from '../../ui/molecules/networth/NetWorth';
-import ProfileCard from '../../ui/molecules/profileCard/ProfileCard';
-import WalletList from '../../ui/molecules/walletList/WalletList';
-import breakpoint from '../../ui/configs/breakpoint';
+import styled from '@emotion/styled'
+import { observer } from 'mobx-react'
+import Spacer from '../../ui/atom/spacer/spacer'
+import breakpoint from '../../ui/configs/breakpoint'
+import DashboardLayout from '../../ui/layout/DashboardLayout'
+import LineChart from '../../ui/molecules/chart/LineChart'
+import NetWorth from '../../ui/molecules/networth/NetWorth'
+import ProfileCard from '../../ui/molecules/profileCard/ProfileCard'
+import WalletList from '../../ui/molecules/walletList/WalletList'
 
 const Dashboard = observer(() => {
   return (
     <DashboardLayout>
       <MainBox>
-        <div className='chart'>
+        <div className="chart">
           <LineChart />
         </div>
-        <section className='profile-info'>
+        <section className="profile-info">
           <ProfileCard />
-          <Spacer size='1rem' />
+          <Spacer size="1rem" />
           <NetWorth />
 
           <WalletList />
         </section>
       </MainBox>
     </DashboardLayout>
-  );
-});
+  )
+})
 
 const MainBox = styled.div`
   width: 100%;
@@ -33,7 +33,6 @@ const MainBox = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;
   margin: 0 auto;
-  padding: 12px;
   column-gap: 2rem;
   height: 100%;
   overflow: auto;
@@ -51,11 +50,15 @@ const MainBox = styled.div`
     width: 12px;
   }
 
+  @media (max-width: ${breakpoint.mobile}px) {
+    /* whitespace between graph and walletconnect */
+    padding: 1rem 1rem 6rem;
+  }
+
   @media (min-width: ${breakpoint.tab}px) {
-    padding: 1rem;
     flex-wrap: nowrap;
     justify-content: center;
   }
-`;
+`
 
-export default Dashboard;
+export default Dashboard

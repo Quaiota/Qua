@@ -1,77 +1,81 @@
-import { motion } from 'framer-motion';
-import styled from '@emotion/styled';
-import CircleFrame from '../../atom/circle-frame/CircleFrame';
-import Menubar from '../../atom/icons/MenuBar';
-import CloseIcon from '../../atom/icons/Close';
-import { useStore } from '../../../App';
-import { Link, useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { useStore } from '../../../App'
+import CircleFrame from '../../atom/circle-frame/CircleFrame'
+import CloseIcon from '../../atom/icons/Close'
+import Menubar from '../../atom/icons/MenuBar'
+import Logo from '../../atom/logo/Logo'
+import breakpoint from '../../configs/breakpoint'
 
 export interface IHorizontalNav {
-  sidebarToggle?: () => void;
-  title?: string;
-  profileImage: string;
-  sidebarOpen?: boolean;
+  sidebarToggle?: () => void
+  title?: string
+  profileImage: string
+  sidebarOpen?: boolean
 }
 
 const HorizontalNav: React.FC<IHorizontalNav> = ({
   sidebarToggle,
   title,
   profileImage,
-  sidebarOpen,
+  sidebarOpen
 }) => {
-  const store = useStore().userStore;
-  const [dropdown, setDropdown] = useState(false);
-  const history = useHistory();
+  const store = useStore().userStore
+  const [dropdown, setDropdown] = useState(false)
+  const history = useHistory()
   const logout = () => {
-    store.getAuth(false);
-    history.replace('/onboarding/verify');
-  };
+    store.getAuth(false)
+    history.replace('/onboarding/verify')
+  }
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div className='logo'>
+      <div className="logo">
         <button
           onClick={sidebarToggle && sidebarToggle}
-          className='sidebar-toggler'>
+          className="sidebar-toggler"
+        >
           {!!sidebarOpen && sidebarOpen ? <CloseIcon /> : <Menubar />}
         </button>
         {title ? (
           <h1>{title}</h1>
         ) : (
-          <h1>
-            Qua <span></span>
-          </h1>
+          <div className="logo">
+            <Logo size="lg" />
+          </div>
         )}
       </div>
 
       <div>
         <CircleFrame
           onClick={() => {
-            setDropdown((prev) => !prev);
+            setDropdown((prev) => !prev)
           }}
-          circleSize='sm'
+          circleSize="sm"
           image={profileImage}
         />
         <StyledDropdown
           initial={{ opacity: 0 }}
-          animate={dropdown ? { opacity: 1 } : { opacity: 0 }}>
-          <Link to='/dashboard/settings'>Settings</Link>
-          <Link to='#' onClick={logout}>
+          animate={dropdown ? { opacity: 1 } : { opacity: 0 }}
+        >
+          <Link to="/dashboard/settings">Settings</Link>
+          <Link to="#" onClick={logout}>
             Log out
           </Link>
         </StyledDropdown>
       </div>
     </StyledNav>
-  );
-};
+  )
+}
 
-export default HorizontalNav;
+export default HorizontalNav
 
 export const StyledDropdown = styled(motion.div)`
   position: absolute;
   top: 65px;
   right: 0.7rem;
-  border-radius: 34px;
+  border-radius: 12px;
   box-shadow: 0px 10px 15px ${({ theme }) => theme.black.matteblack + '6e'};
   backdrop-filter: blur(40px);
   width: fit-content;
@@ -96,7 +100,7 @@ export const StyledDropdown = styled(motion.div)`
       background: ${({ theme }) => theme.black.dark1 + 'de'};
     }
   }
-`;
+`
 
 const StyledNav = styled(motion.nav)`
   position: fixed;
@@ -104,31 +108,33 @@ const StyledNav = styled(motion.nav)`
   z-index: 1000;
   width: 100%;
   min-height: 45px;
-  padding: 1rem;
   background: ${({ theme }) => theme.black.dark4};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-inline: 1.5rem;
+
+  @media (max-width: ${breakpoint.mobile}px) {
+    min-height: 60px;
+  }
+
+  @media (min-width: ${breakpoint.desktop}px) {
+    min-height: 68px;
+  }
+
   .logo {
     display: flex;
-    h1 {
-      padding-left: 1.5rem;
-      color: ${({ theme }) => theme.primary.white};
-      span {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: ${({ theme }) => theme.primary.mint1};
-        margin-left: -5px;
-      }
-    }
+    /* padding-left: 2rem; */
   }
   .sidebar-toggler {
     border: none;
     background: none;
     cursor: pointer;
     color: ${({ theme }) => theme.primary.white};
+    margin-right: 1.5rem;
+
+    @media (max-width: ${breakpoint.mobile}px) {
+      margin-right: 1rem;
+    }
   }
-`;
+`
