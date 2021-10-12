@@ -14,14 +14,15 @@ const DashboardLayout: React.FC = () => {
     setToggle((prev) => !prev);
   };
   const { path } = useRouteMatch();
+
   return (
     <StyledDashboardLayout>
       <HorizontalNav
         sidebarOpen={toggle}
-        profileImage=''
+        profileImage=""
         sidebarToggle={toggleSidebar}
       />
-      <div className='wrapper'>
+      <div className="wrapper">
         <SideNav open={toggle} />
         <div className='containBox'>
           <main>
@@ -30,21 +31,26 @@ const DashboardLayout: React.FC = () => {
               <ProtectedRoute path={`${path}/setting`} component={Settings} />
             </Switch>
           </main>
+
         </div>
       </div>
     </StyledDashboardLayout>
-  );
-};
+  )
+}
 
-export default DashboardLayout;
+export default DashboardLayout
 
 const StyledDashboardLayout = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   overflow-y: hidden;
   padding-top: 60px;
   background: ${({ theme }) => theme.black.matteblack};
+
+  @media (max-width: ${breakpoint.mobile}px) {
+    height: 100%;
+  }
 
   .wrapper {
     position: relative;
@@ -52,7 +58,11 @@ const StyledDashboardLayout = styled.div`
     width: 100%;
     overflow: auto;
     min-height: 90%;
-    height: 100%;
+    height: 100vh;
+
+    @media (max-width: ${breakpoint.mobile}px) {
+      height: 100%;
+    }
 
     .containBox {
       position: relative;
@@ -77,6 +87,7 @@ const StyledDashboardLayout = styled.div`
     .wrapper {
       .containBox {
         flex-wrap: nowrap;
+        padding-top: 2rem;
         .profile-info {
           margin-right: 1rem;
           max-width: 348px;
@@ -84,4 +95,4 @@ const StyledDashboardLayout = styled.div`
       }
     }
   }
-`;
+`

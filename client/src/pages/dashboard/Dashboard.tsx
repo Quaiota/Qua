@@ -1,3 +1,4 @@
+
 import { observer } from 'mobx-react';
 import styled from '@emotion/styled';
 import LineChart from '../../ui/molecules/chart/LineChart';
@@ -9,9 +10,11 @@ import breakpoint from '../../ui/configs/breakpoint';
 import { Route, useRouteMatch } from 'react-router';
 import Settings from './dashboardSettings/Settings';
 
+
 const Dashboard = observer(() => {
   const { url } = useRouteMatch();
   return (
+
     <MainBox>
       <Route path={`${url}/settings`} component={Settings} />
       <div className='chart'>
@@ -28,13 +31,13 @@ const Dashboard = observer(() => {
   );
 });
 
+
 const MainBox = styled.div`
   width: 100%;
   /* max-width: 1200px; */
   display: flex;
   flex-wrap: wrap-reverse;
   margin: 0 auto;
-  padding: 12px;
   column-gap: 2rem;
   height: 100%;
   overflow: auto;
@@ -52,11 +55,15 @@ const MainBox = styled.div`
     width: 12px;
   }
 
+  @media (max-width: ${breakpoint.mobile}px) {
+    /* whitespace between graph and walletconnect */
+    padding: 1rem 1rem 6rem;
+  }
+
   @media (min-width: ${breakpoint.tab}px) {
-    padding: 1rem;
     flex-wrap: nowrap;
     justify-content: center;
   }
-`;
+`
 
-export default Dashboard;
+export default Dashboard
