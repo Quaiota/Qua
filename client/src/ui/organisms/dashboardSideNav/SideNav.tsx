@@ -1,70 +1,74 @@
-import { useEffect, useState } from 'react';
-import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
-import SearchIcon from '../../atom/icons/SearchIcon';
-import SocialIcon from '../../atom/icons/SocialIcon';
-import Spacer from '../../atom/spacer/spacer';
-import TextWrap from '../../atom/typography/TextWrap';
-import breakpoint from '../../configs/breakpoint';
-import ConnectIcon from '../../atom/icons/ConnectIcon';
-import { Link } from 'react-router-dom';
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import ConnectIcon from '../../atom/icons/ConnectIcon'
+import SearchIcon from '../../atom/icons/SearchIcon'
+import SocialIcon from '../../atom/icons/SocialIcon'
+import Spacer from '../../atom/spacer/spacer'
+import TextWrap from '../../atom/typography/TextWrap'
+import breakpoint from '../../configs/breakpoint'
 
 export interface ISideNav {
-  open: boolean;
+  open: boolean
 }
 const SideNav: React.FC<ISideNav> = ({ open }) => {
-  const initWidth = { maxWidth: '80px' };
-  const maxWidth = { maxWidth: '300px' };
-  const fullWidth = { maxWidth: `${breakpoint.mobile - 68}px` };
-  const [windowW, setWindowW] = useState(0);
+  const initWidth = { maxWidth: '80px' }
+  const maxWidth = { maxWidth: '300px' }
+  const fullWidth = { maxWidth: `${breakpoint.mobile - 68}px` }
+  const [windowW, setWindowW] = useState(0)
 
   const watchWindowResize = () => {
     window.addEventListener('resize', () => {
-      setWindowW(window.outerWidth);
-    });
-  };
+      setWindowW(window.outerWidth)
+    })
+  }
   useEffect(() => {
-    setWindowW(window.outerWidth);
-    watchWindowResize();
-    return () => watchWindowResize();
-  }, []);
+    setWindowW(window.outerWidth)
+    watchWindowResize()
+    return () => watchWindowResize()
+  }, [])
   return (
     <StyledSideNav
       open={open}
       initial={initWidth}
       animate={
         open ? (windowW <= breakpoint.mobile ? fullWidth : maxWidth) : initWidth
-      }>
-      {open && (
-        <>
-          {/* search input */}
-          <StyledSearchInput>
-            <SearchIcon /> <input type='text' placeholder='Search' />
-          </StyledSearchInput>
-        </>
-      )}
+      }
+    >
       <StyledNavBox>
-        {open && (
-          <>
-            <Spacer size='1rem' />
-            <TextWrap fontSize='caption'>MY APPS</TextWrap>
-          </>
-        )}
-        <Spacer size='1rem' />
+        <Wrapper>
+          {open && (
+            <>
+              <Spacer size="1rem" />
+              <TextWrap fontSize="caption">My apps</TextWrap>
+            </>
+          )}
+          <Spacer size="1rem" />
+          {open && (
+            <>
+              {/* search input */}
+              <StyledSearchInput>
+                <SearchIcon /> <input type="text" placeholder="Search" />
+              </StyledSearchInput>
+            </>
+          )}
+        </Wrapper>
+        <Spacer size="1rem" />
         {/* sidebar items */}
-        <StyledSidebarItem to='/social'>
-          <SocialIcon /> {open && <TextWrap fontSize='bodymd'>Social</TextWrap>}
+        <StyledSidebarItem to="/social">
+          <SocialIcon /> {open && <TextWrap fontSize="bodymd">Social</TextWrap>}
         </StyledSidebarItem>
       </StyledNavBox>
-      <button className='connectbutton'>
+      <button className="connectbutton">
         <ConnectIcon />
-        {open && <TextWrap fontSize='bodymd'>Connect apps</TextWrap>}
+        {open && <TextWrap fontSize="bodymd">Connect apps</TextWrap>}
       </button>
     </StyledSideNav>
-  );
-};
+  )
+}
 
-export default SideNav;
+export default SideNav
 
 const StyledSideNav = styled(motion.section)<{ open: boolean }>`
   background: ${({ theme }) => theme.black.dark3};
@@ -97,9 +101,13 @@ const StyledSideNav = styled(motion.section)<{ open: boolean }>`
 
     display: ${(props) => (props.open ? 'block' : 'none')};
   }
-`;
+`
 
-const StyledNavBox = styled.div``;
+const Wrapper = styled.div`
+  padding: 0.5rem;
+`
+
+const StyledNavBox = styled.div``
 
 const StyledSidebarItem = styled(Link)`
   padding: 1rem;
@@ -113,10 +121,10 @@ const StyledSidebarItem = styled(Link)`
   p {
     padding-left: 22px;
   }
-`;
+`
 
 const StyledSearchInput = styled(motion.div)`
-  background: ${({ theme }) => theme.black.dark2};
+  background: ${({ theme }) => theme.black.dark1};
   padding-inline: 1rem;
   display: flex;
   border-radius: 8px;
@@ -125,13 +133,14 @@ const StyledSearchInput = styled(motion.div)`
     fill: ${({ theme }) => theme.primary.white};
   }
   input {
-    margin-left: 12px;
+    /* margin-left: 12px; */
     background: none;
     border: none;
-    padding: 5px;
+    padding: 12px;
+    font-size: 16px;
     display: inline-block;
     width: 100%;
     outline: 1px;
     color: ${({ theme }) => theme.primary.white};
   }
-`;
+`

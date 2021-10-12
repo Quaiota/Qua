@@ -67,11 +67,13 @@ const h3 = css`
   }
 `
 const caption = css`
-  font-style: normal;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
+  font-feature-settings: 'salt' on;
+  color: #f6fef7;
+  opacity: 0.8;
   @media (min-width: ${breakpoint.desktop}px) {
   }
 `

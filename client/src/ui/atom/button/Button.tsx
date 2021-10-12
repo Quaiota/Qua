@@ -34,6 +34,8 @@ export const StyledButton = styled.button<IButton>`
   padding: 0.75rem 1rem;
   font-weight: ${({ bold }) => bold ?? 'normal'};
 
+  outline: none;
+
   ${({ btnType }) => btnType === 'transparent' && transparent}
   ${({ btnType, theme, bgColor }) =>
     btnType === 'outlined' &&

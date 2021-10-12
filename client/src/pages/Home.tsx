@@ -158,7 +158,7 @@ const StyledBuiltForPeople = styled.section`
 const MainBox = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.black.matteblack};
-  height: 100vh;
+  height: 100%;
   overflow: auto;
 
   .logoHolder {
