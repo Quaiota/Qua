@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { Route, Switch, useRouteMatch } from 'react-router';
+import { Switch, useRouteMatch } from 'react-router';
 import ProtectedRoute from '../../auth/ProtectedRoute';
 import Dashboard from '../../pages/dashboard/Dashboard';
 import Settings from '../../pages/dashboard/dashboardSettings/Settings';
