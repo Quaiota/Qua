@@ -7,7 +7,6 @@ import EyeIcon from '../../../ui/atom/icons/EyeIcon';
 import Spacer from '../../../ui/atom/spacer/spacer';
 import TextWrap from '../../../ui/atom/typography/TextWrap';
 import breakpoint from '../../../ui/configs/breakpoint';
-import DashboardLayout from '../../../ui/layout/DashboardLayout';
 import SettingInput from '../../../ui/molecules/inputField/SettingInput';
 import PasswordModal from './PasswordModal';
 
@@ -20,10 +19,12 @@ const Settings = () => {
   };
 
   return (
-    <DashboardLayout>
+    <>
       <StyledSettingsContainer>
         <div className='settings-header'>
-          <Button btnType='transparent' onClick={() => history.goBack()}>
+          <Button
+            btnType='transparent'
+            onClick={() => history.push('/dashboard')}>
             <ChevronLeftIcon />
           </Button>
           <TextWrap fontSize='h3' bold='bolder'>
@@ -76,7 +77,7 @@ const Settings = () => {
         </form>
       </StyledSettingsContainer>
       <PasswordModal open={isModal} close={closePasswordModal} />
-    </DashboardLayout>
+    </>
   );
 };
 

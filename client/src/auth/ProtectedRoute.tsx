@@ -6,7 +6,7 @@ const ProtectedRoute: FC<RouteProps> = ({
   component: Component,
   ...rest
 }: RouteProps) => {
-  const isAuthenticated = useStore().userStore.auth;
+  const isAuthenticated = useStore().userStore.getAuth();
 
   return (
     <Route

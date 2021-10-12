@@ -4,7 +4,7 @@ import CircleFrame from '../../atom/circle-frame/CircleFrame';
 import Menubar from '../../atom/icons/MenuBar';
 import CloseIcon from '../../atom/icons/Close';
 import { useStore } from '../../../App';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { useState } from 'react';
 
 export interface IHorizontalNav {
@@ -22,11 +22,8 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
 }) => {
   const store = useStore().userStore;
   const [dropdown, setDropdown] = useState(false);
-  const history = useHistory();
-  const logout = () => {
-    store.getAuth(false);
-    history.replace('/onboarding/verify');
-  };
+  const { url } = useRouteMatch();
+
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className='logo'>
@@ -55,8 +52,8 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
         <StyledDropdown
           initial={{ opacity: 0 }}
           animate={dropdown ? { opacity: 1 } : { opacity: 0 }}>
-          <Link to='/dashboard/settings'>Settings</Link>
-          <Link to='#' onClick={logout}>
+          <Link to={`${url}/setting`}>Settings</Link>
+          <Link to='#' onClick={store.logout}>
             Log out
           </Link>
         </StyledDropdown>
