@@ -91,6 +91,11 @@ const StyledSecureAccount = styled.div`
   background: ${({ theme }) => theme.accent.purple};
   padding: 1rem;
   overflow-y: auto;
+
+  @media (min-width: ${breakpoint.desktop}px) {
+    height: 100vh;
+  }
+
   form {
     max-width: 660px;
     width: 100%;
