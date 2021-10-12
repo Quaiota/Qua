@@ -10,13 +10,15 @@ const Post = () => {
       <ProfileHeader />
       <PostHeader />
       <Spacer size='1rem' />
-      <TextWrap fontSize='body'>
-        We need to move NFTs onto the layer 2 ecosystem to cut fees. However,
-        doing that *right* requires good cross-rollup portability standards, so
-        the ecosystem can avoid getting locked into one particular L2. The NFT
-        ecosystem is growing rapidly, and it’s a significant part of the
-        Ethereum chain’s gas consumption.
-      </TextWrap>
+      <article className='article'>
+        <TextWrap fontSize='bodymd'>
+          We need to move NFTs onto the layer 2 ecosystem to cut fees. However,
+          doing that *right* requires good cross-rollup portability standards,
+          so the ecosystem can avoid getting locked into one particular L2. The
+          NFT ecosystem is growing rapidly, and it’s a significant part of the
+          Ethereum chain’s gas consumption.
+        </TextWrap>
+      </article>
     </StyledPost>
   );
 };
@@ -25,4 +27,9 @@ export default Post;
 
 const StyledPost = styled.div`
   max-width: 520px;
+  padding-bottom: 24px;
+
+  .article {
+    padding-inline: 1rem;
+  }
 `;

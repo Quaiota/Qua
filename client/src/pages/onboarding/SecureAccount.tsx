@@ -71,10 +71,17 @@ const SecureAccount = () => {
             value={password}
             onChange={handleChange}
             ref={inputRef}
+            tabIndex={1}
           />
         </div>
-        <div className="btn-box">
-          <Button btnType="solid" type="submit" disabled={!formReady}>
+
+        <div className='btn-box'>
+          <Button
+            btnType='solid'
+            type='submit'
+            disabled={!formReady}
+            tabIndex={2}>
+
             Finish Setup
           </Button>
         </div>

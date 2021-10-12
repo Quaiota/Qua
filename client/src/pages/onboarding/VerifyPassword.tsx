@@ -29,7 +29,7 @@ const VerifyPassword = () => {
   const handlSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formReady) {
-      store.getAuth(true).then(() => history.push('/dashboard'));
+      store.setAuth(true).then(() => history.push('/dashboard'));
     }
   };
   return (
@@ -50,13 +50,18 @@ const VerifyPassword = () => {
             value={password}
             onChange={handleChange}
             ref={inputRef}
+            tabIndex={1}
           />
 
           <Spacer size='1rem' />
           <Info text='Change your password frequently to protect your account' />
         </div>
         <div className='btn-box'>
-          <Button btnType='solid' type='submit' disabled={!formReady}>
+          <Button
+            btnType='solid'
+            type='submit'
+            disabled={!formReady}
+            tabIndex={2}>
             Confirm
           </Button>
         </div>

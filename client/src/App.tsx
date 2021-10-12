@@ -7,13 +7,12 @@ import { RootStore } from './mobx/rootStore';
 import { iStore } from './mobx/store_interface';
 import ConstructionSite from './pages/ConstructionSite';
 
-import Dashboard from './pages/dashboard/Dashboard';
-import Settings from './pages/dashboard/dashboardSettings/Settings';
 import Home from './pages/Home';
 import OnBoard from './pages/onboarding';
 import SecureAccount from './pages/onboarding/SecureAccount';
 import VerifyPassword from './pages/onboarding/VerifyPassword';
 import SocialWall from './pages/Social/SocialWall';
+import DashboardLayout from './ui/layout/DashboardLayout';
 
 // @ts-ignore
 function getLibrary(provider, connector) {
@@ -32,13 +31,13 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Switch>
-            <ProtectedRoute exact path='/dashboard' component={Dashboard} />
-            <ProtectedRoute exact path='/social' component={SocialWall} />
             <ProtectedRoute
               exact
-              path='/dashboard/settings'
-              component={Settings}
+              path='/dashboard'
+              component={() => <DashboardLayout />}
             />
+            <ProtectedRoute exact path='/social' component={SocialWall} />
+
             <Route path='/onboarding/secure' component={SecureAccount} />
             <Route path='/onboarding/verify' component={VerifyPassword} />
             <Route exact path='/onboarding' component={OnBoard} />

@@ -31,15 +31,19 @@ const OnBoard: React.FC<{ toggleModal: () => void; show: boolean }> = ({
             </TextWrap>
           </div>
           <InputField
-            name="fullname"
-            label="Full Name"
-            placeholder="James Bond"
+
+            tabIndex={1}
+            name='fullname'
+            label='Full Name'
+            placeholder='James Bond'
+
             ref={inputRef}
             value={signUp.fullname}
             onChange={handleChange}
           />
           <Spacer size="1rem" />
           <InputField
+            tabIndex={2}
             value={signUp.handle}
             atSign
             name="handle"
@@ -50,6 +54,7 @@ const OnBoard: React.FC<{ toggleModal: () => void; show: boolean }> = ({
           <Spacer size="2rem" />
           <div className="box">
             <Button
+              tabIndex={3}
               disabled={!isReady}
               type="submit"
               btnType="solid"

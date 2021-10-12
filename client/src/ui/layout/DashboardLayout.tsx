@@ -1,14 +1,19 @@
-import styled from '@emotion/styled'
-import { useState } from 'react'
-import breakpoint from '../configs/breakpoint'
-import HorizontalNav from '../organisms/dashboardhorizontalNav/HorizontalNav'
-import SideNav from '../organisms/dashboardSideNav/SideNav'
+import styled from '@emotion/styled';
+import { useState } from 'react';
+import { Switch, useRouteMatch } from 'react-router';
+import ProtectedRoute from '../../auth/ProtectedRoute';
+import Dashboard from '../../pages/dashboard/Dashboard';
+import Settings from '../../pages/dashboard/dashboardSettings/Settings';
+import breakpoint from '../configs/breakpoint';
+import HorizontalNav from '../organisms/dashboardhorizontalNav/HorizontalNav';
+import SideNav from '../organisms/dashboardSideNav/SideNav';
 
-const DashboardLayout: React.FC = ({ children }) => {
-  const [toggle, setToggle] = useState(false)
+const DashboardLayout: React.FC = () => {
+  const [toggle, setToggle] = useState(false);
   const toggleSidebar = () => {
-    setToggle((prev) => !prev)
-  }
+    setToggle((prev) => !prev);
+  };
+  const { path } = useRouteMatch();
 
   return (
     <StyledDashboardLayout>
@@ -19,8 +24,14 @@ const DashboardLayout: React.FC = ({ children }) => {
       />
       <div className="wrapper">
         <SideNav open={toggle} />
-        <div className="containBox">
-          <main>{children}</main>
+        <div className='containBox'>
+          <main>
+            <Switch>
+              <ProtectedRoute path={`${path}/`} exact component={Dashboard} />
+              <ProtectedRoute path={`${path}/setting`} component={Settings} />
+            </Switch>
+          </main>
+
         </div>
       </div>
     </StyledDashboardLayout>

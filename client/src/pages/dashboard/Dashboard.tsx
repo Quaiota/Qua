@@ -1,31 +1,36 @@
-import styled from '@emotion/styled'
-import { observer } from 'mobx-react'
-import Spacer from '../../ui/atom/spacer/spacer'
-import breakpoint from '../../ui/configs/breakpoint'
-import DashboardLayout from '../../ui/layout/DashboardLayout'
-import LineChart from '../../ui/molecules/chart/LineChart'
-import NetWorth from '../../ui/molecules/networth/NetWorth'
-import ProfileCard from '../../ui/molecules/profileCard/ProfileCard'
-import WalletList from '../../ui/molecules/walletList/WalletList'
+
+import { observer } from 'mobx-react';
+import styled from '@emotion/styled';
+import LineChart from '../../ui/molecules/chart/LineChart';
+import Spacer from '../../ui/atom/spacer/spacer';
+import NetWorth from '../../ui/molecules/networth/NetWorth';
+import ProfileCard from '../../ui/molecules/profileCard/ProfileCard';
+import WalletList from '../../ui/molecules/walletList/WalletList';
+import breakpoint from '../../ui/configs/breakpoint';
+import { Route, useRouteMatch } from 'react-router';
+import Settings from './dashboardSettings/Settings';
+
 
 const Dashboard = observer(() => {
+  const { url } = useRouteMatch();
   return (
-    <DashboardLayout>
-      <MainBox>
-        <div className="chart">
-          <LineChart />
-        </div>
-        <section className="profile-info">
-          <ProfileCard />
-          <Spacer size="1rem" />
-          <NetWorth />
 
-          <WalletList />
-        </section>
-      </MainBox>
-    </DashboardLayout>
-  )
-})
+    <MainBox>
+      <Route path={`${url}/settings`} component={Settings} />
+      <div className='chart'>
+        <LineChart />
+      </div>
+      <section className='profile-info'>
+        <ProfileCard />
+        <Spacer size='1rem' />
+        <NetWorth />
+
+        <WalletList />
+      </section>
+    </MainBox>
+  );
+});
+
 
 const MainBox = styled.div`
   width: 100%;

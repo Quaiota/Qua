@@ -35,6 +35,7 @@ export default SocialSideNav;
 
 const StyledSocialNav = styled.div`
   display: flex;
+
   .title {
     display: none;
     padding: 0.8rem;
@@ -43,6 +44,8 @@ const StyledSocialNav = styled.div`
   .tabs {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .send-post {
