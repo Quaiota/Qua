@@ -1,9 +1,9 @@
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
-import { FC } from 'react'
-import breakpoint from '../../configs/breakpoint'
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { FC } from 'react';
+import breakpoint from '../../configs/breakpoint';
 
-interface ITextWrap {
+interface ITextWrap extends React.HTMLAttributes<HTMLParagraphElement> {
   fontSize?:
     | 'lg'
     | 'h1'
@@ -12,16 +12,16 @@ interface ITextWrap {
     | 'caption'
     | 'body'
     | 'bodysm'
-    | 'bodymd'
-  fontFamily?: string
-  color?: string
-  bold?: 'bold' | 'bolder'
+    | 'bodymd';
+  fontFamily?: string;
+  color?: string;
+  bold?: 'bold' | 'bolder';
 }
 const TextWrap: FC<ITextWrap> = ({ children, ...rest }) => {
-  return <Heading {...rest}>{children}</Heading>
-}
+  return <Heading {...rest}>{children}</Heading>;
+};
 
-export default TextWrap
+export default TextWrap;
 
 const lg = css`
   font-size: 36px;
@@ -34,7 +34,7 @@ const lg = css`
     font-size: 72px;
     line-height: 98px;
   }
-`
+`;
 
 const h1 = css`
   font-style: normal;
@@ -45,7 +45,7 @@ const h1 = css`
     font-size: 36px;
     line-height: 53px;
   }
-`
+`;
 
 const h2 = css`
   font-style: normal;
@@ -56,7 +56,7 @@ const h2 = css`
     font-size: 24px;
     line-height: 35px;
   }
-`
+`;
 
 const h3 = css`
   font-style: normal;
@@ -65,7 +65,7 @@ const h3 = css`
   line-height: 26px;
   @media (min-width: ${breakpoint.desktop}px) {
   }
-`
+`;
 const caption = css`
   font-weight: 400;
   font-size: 16px;
@@ -76,7 +76,7 @@ const caption = css`
   opacity: 0.8;
   @media (min-width: ${breakpoint.desktop}px) {
   }
-`
+`;
 const body = css`
   font-style: normal;
   font-weight: normal;
@@ -84,7 +84,7 @@ const body = css`
   line-height: 24px;
   @media (min-width: ${breakpoint.desktop}px) {
   }
-`
+`;
 
 const bodyMd = css`
   font-style: normal;
@@ -93,7 +93,7 @@ const bodyMd = css`
   line-height: 21px;
   @media (min-width: ${breakpoint.desktop}px) {
   }
-`
+`;
 
 const bodySm = css`
   font-style: normal;
@@ -102,7 +102,7 @@ const bodySm = css`
   line-height: 18px;
   @media (min-width: ${breakpoint.desktop}px) {
   }
-`
+`;
 
 const Heading = styled.p<ITextWrap>`
   color: ${(props) => props.color ?? props.theme.primary.sea3};
@@ -116,4 +116,4 @@ const Heading = styled.p<ITextWrap>`
   ${({ fontSize }) => fontSize === 'bodymd' && bodyMd}
   ${({ fontSize }) => fontSize === 'bodysm' && bodySm}
   font-weight: ${({ bold }) => bold && bold};
-`
+`;

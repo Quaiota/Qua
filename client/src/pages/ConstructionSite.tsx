@@ -1,107 +1,69 @@
 import styled from '@emotion/styled';
 import Button from '../ui/atom/button/Button';
+import BoostIcon from '../ui/atom/icons/BoostIcon';
+import CommentIcon from '../ui/atom/icons/CommentIcon';
+import LikeIcon from '../ui/atom/icons/LikeIcon';
+import ShareIcon from '../ui/atom/icons/ShareIcon';
 import TextWrap from '../ui/atom/typography/TextWrap';
 import breakpoint from '../ui/configs/breakpoint';
 import CheckBox from '../ui/molecules/checkBox/CheckBox';
+import ProfileHeader from '../ui/molecules/profileHeader/ProfileHeader';
 
 const ConstructionSite = () => {
   return (
-    <SocialOnboard>
-      <form className='wrapper'>
-        <section className='pager'>
-          <TextWrap fontSize='bodymd' bold='bold'>
-            Onboarding
-          </TextWrap>
-          <TextWrap fontSize='bodymd' bold='bold'>
-            1/1
-          </TextWrap>
-        </section>
-        <div className='caption-box'>
-          <TextWrap fontSize='h2'>Topic of Interests</TextWrap>
-          <div className='sub-text'>
-            <TextWrap fontSize='bodymd'>
-              Add the topics that matter most to you, <br /> You can edit your
-              topic of interest anytime.
-            </TextWrap>
-          </div>
-        </div>
-        <section className='checklist'>
-          <CheckBox label='Academia' name='academia' />
-          <CheckBox label='Arts & culture' name='arts' />
-          <CheckBox label='Business & finance' name='business' />
-          <CheckBox label='Careers' name='careers' />
-          <CheckBox label='Design' name='design' />
-          <CheckBox label='Entertainment' name='entertainment' />
-          <CheckBox label='Fashion & beauty' name='fashionbeauty' />
-          <CheckBox label='Fitness' name='Fitness' />
-        </section>
-        <div className='submit-box'>
-          <Button type='submit' btnType='solid'>
-            Complete
-          </Button>
-        </div>
-      </form>
-    </SocialOnboard>
+    <StyledComment>
+      <ProfileHeader size='default' />
+      <TextWrap className='text'>
+        Probably @punk6529 actually buying Fidenza town in Italy and dedicating
+        it to all things NFT art and community.
+      </TextWrap>
+      <div className='comment-actions-box'>
+        <Button btnType='transparent'>
+          <CommentIcon />
+          <span>0</span>
+        </Button>
+        <Button btnType='transparent'>
+          <LikeIcon />
+          <span>0</span>
+        </Button>
+        <Button btnType='transparent'>
+          <BoostIcon />
+          <span>0</span>
+        </Button>
+        <Button btnType='transparent'>
+          <ShareIcon />
+        </Button>
+      </div>
+    </StyledComment>
   );
 };
 
-const SocialOnboard = styled.div`
-  min-height: 100vh;
-  background: ${({ theme }) => theme.accent.purple};
-  .wrapper {
-    max-width: 600px;
-    padding-top: 2em;
-    margin: 0 auto;
-    padding-bottom: 4rem;
-    @media (min-width: ${breakpoint.tab}px) {
-      padding-bottom: 0rem;
-    }
-
-    .pager {
-      display: flex;
-      justify-content: space-between;
-      padding-block: 12px;
-    }
-    .checklist {
-      padding-block: 1rem;
-    }
-    .submit-box {
-      padding-top: 1rem;
-      position: fixed;
-      bottom: 10px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      padding-bottom: 1rem;
-      padding-inline: 1rem;
-      background: ${({ theme }) => theme.accent.purple};
-
-      button {
-        display: flex;
-        width: 100%;
-        justify-content: center;
+const StyledComment = styled.div`
+  max-width: 400px;
+  /* border: 1px gray solid; */
+  margin: 0 auto;
+  padding-block: 12px;
+  .text {
+    font-size: 13px;
+    padding-inline: 1rem;
+    padding-block: 0.5em;
+  }
+  .comment-actions-box {
+    display: flex;
+    justify-content: space-between;
+    button {
+      display: inline-flex;
+      align-items: center;
+      svg {
+        fill: white;
       }
-      @media (min-width: ${breakpoint.tab}px) {
-        margin: 0 auto;
-        max-width: 340px;
-        position: relative;
-        bottom: unset;
-        /* width:  */
+      span {
+        padding-left: 6px;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 18px;
       }
-    }
-    .caption-box {
-      padding-top: 12px;
-      .sub-text {
-        padding-top: 8px;
-      }
-    }
-
-    .pager,
-    .caption-box {
-      padding-inline: 1rem;
     }
   }
 `;
