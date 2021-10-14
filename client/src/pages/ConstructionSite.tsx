@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Button from '../ui/atom/button/Button';
 import TextWrap from '../ui/atom/typography/TextWrap';
+import breakpoint from '../ui/configs/breakpoint';
 import CheckBox from '../ui/molecules/checkBox/CheckBox';
 
 const ConstructionSite = () => {
@@ -45,13 +46,16 @@ const ConstructionSite = () => {
 };
 
 const SocialOnboard = styled.div`
-  height: 100vh;
-  overflow-y: auto;
+  min-height: 100vh;
   background: ${({ theme }) => theme.accent.purple};
   .wrapper {
     max-width: 600px;
-    padding: 1rem;
+    padding-top: 2em;
     margin: 0 auto;
+    padding-bottom: 4rem;
+    @media (min-width: ${breakpoint.tab}px) {
+      padding-bottom: 0rem;
+    }
 
     .pager {
       display: flex;
@@ -62,13 +66,30 @@ const SocialOnboard = styled.div`
       padding-block: 1rem;
     }
     .submit-box {
-      max-width: 340px;
-      margin: 0 auto;
       padding-top: 1rem;
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      padding-bottom: 1rem;
+      padding-inline: 1rem;
+      background: ${({ theme }) => theme.accent.purple};
+
       button {
         display: flex;
         width: 100%;
         justify-content: center;
+      }
+      @media (min-width: ${breakpoint.tab}px) {
+        margin: 0 auto;
+        max-width: 340px;
+        position: relative;
+        bottom: unset;
+        /* width:  */
       }
     }
     .caption-box {
