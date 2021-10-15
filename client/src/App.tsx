@@ -8,6 +8,7 @@ import { iStore } from './mobx/store_interface';
 import ConstructionSite from './pages/ConstructionSite';
 
 import Home from './pages/Home';
+import LitePaper from './pages/litepaper';
 import OnBoard from './pages/onboarding';
 import SecureAccount from './pages/onboarding/SecureAccount';
 import VerifyPassword from './pages/onboarding/VerifyPassword';
@@ -42,6 +43,7 @@ function App() {
             <Route path='/onboarding/verify' component={VerifyPassword} />
             <Route exact path='/onboarding' component={OnBoard} />
             <Route exact path='/play' component={ConstructionSite} />
+            <Route exact path='/litepaper' component={LitePaper} />
             <Route exact path='/' component={Home} />
           </Switch>
         </BrowserRouter>

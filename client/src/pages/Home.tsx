@@ -1,56 +1,55 @@
-import { useTheme } from '@emotion/react'
-import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
-import { memo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import Button from '../ui/atom/button/Button'
-import Logo from '../ui/atom/logo/Logo'
-import Spacer from '../ui/atom/spacer/spacer'
-import TextWrap from '../ui/atom/typography/TextWrap'
-import breakpoint from '../ui/configs/breakpoint'
-import Footer from '../ui/organisms/footer/Footer'
-import OnBoard from './onboarding'
+import { useTheme } from '@emotion/react';
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
+import { memo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../ui/atom/button/Button';
+import Logo from '../ui/atom/logo/Logo';
+import Spacer from '../ui/atom/spacer/spacer';
+import TextWrap from '../ui/atom/typography/TextWrap';
+import breakpoint from '../ui/configs/breakpoint';
+import Footer from '../ui/organisms/footer/Footer';
+import OnBoard from './onboarding';
 
 const Home = memo(() => {
-  const color = useTheme()
-  const [show, setShow] = useState(false)
+  const color = useTheme();
+  const [show, setShow] = useState(false);
   const toggleModal = () => {
-    setShow(!show)
-  }
+    setShow(!show);
+  };
 
   return (
     <MainBox>
-      <Link to="/" className="logoHolder">
-        <Logo size="lg" />
+      <Link to='/' className='logoHolder'>
+        <Logo size='lg' />
       </Link>
       <StyledFlexBox>
-        <div className="box">
-          <div className="wrapper">
-            <TextWrap fontSize="lg" bold="bolder">
+        <div className='box'>
+          <div className='wrapper'>
+            <TextWrap fontSize='lg' bold='bolder'>
               Quaiota
             </TextWrap>
 
-            <Spacer size="1.2rem" />
-            <TextWrap fontSize="body">
+            <Spacer size='1.2rem' />
+            <TextWrap fontSize='body'>
               Your decentralized web3 profile where you can access apps and
               systems that enables everyone to build wealth on the internet
             </TextWrap>
-            <Spacer size="1.5rem" />
-            <TextWrap fontSize="body">
+            <Spacer size='1.5rem' />
+            <TextWrap fontSize='body'>
               Built on the Etheruem Blockchain.
             </TextWrap>
 
             <section>
               <Button
-                btnType="solid"
-                bold="bold"
+                btnType='solid'
+                bold='bold'
                 onClick={toggleModal}
                 bgColor={color.accent.cyan}
-                textColor={color.black.matteblack}
-              >
+                textColor={color.black.matteblack}>
                 Launch app
               </Button>
-              <Link to="/" className="link">
+              <Link to='/litepaper' className='link'>
                 Learn more
               </Link>
             </section>
@@ -65,29 +64,28 @@ const Home = memo(() => {
         <StyledColoredBox color={color.primary.pop1}>
           <div></div>
         </StyledColoredBox>
-        <div className="box">
-          <div className="wrapper">
-            <TextWrap fontSize="lg" bold="bolder">
+        <div className='box'>
+          <div className='wrapper'>
+            <TextWrap fontSize='lg' bold='bolder'>
               Social
             </TextWrap>
 
-            <Spacer size="1.2rem" />
-            <TextWrap fontSize="body">
+            <Spacer size='1.2rem' />
+            <TextWrap fontSize='body'>
               Quality social network on the Quaiota focused on decentralized
               media and academia.
             </TextWrap>
 
             <section>
               <Button
-                btnType="solid"
-                bold="bold"
+                btnType='solid'
+                bold='bold'
                 onClick={toggleModal}
                 bgColor={color.primary.hot1}
-                textColor={color.black.matteblack}
-              >
+                textColor={color.black.matteblack}>
                 Join
               </Button>
-              <Link to="/" className="link">
+              <Link to='/' className='link'>
                 How it works
               </Link>
             </section>
@@ -95,13 +93,13 @@ const Home = memo(() => {
         </div>
       </StyledFlexBox>
       <StyledBuiltForPeople>
-        <div className="wrapper">
-          <TextWrap fontSize="lg" bold="bolder">
+        <div className='wrapper'>
+          <TextWrap fontSize='lg' bold='bolder'>
             Built for the People
           </TextWrap>
           <TextWrap>Description</TextWrap>
 
-          <div className="flexbox">
+          <div className='flexbox'>
             <div></div>
             <div></div>
             <div></div>
@@ -111,8 +109,8 @@ const Home = memo(() => {
       <Footer />
       {show && <OnBoard show={show} toggleModal={toggleModal} />}
     </MainBox>
-  )
-})
+  );
+});
 
 const StyledBuiltForPeople = styled.section`
   padding-block: 12%;
@@ -153,7 +151,7 @@ const StyledBuiltForPeople = styled.section`
       }
     }
   }
-`
+`;
 
 const MainBox = styled.div`
   width: 100%;
@@ -206,7 +204,7 @@ const MainBox = styled.div`
       padding-block: 10%;
     }
   }
-`
+`;
 
 const StyledColoredBox = styled(motion.div)`
   background: ${(props) => props.color ?? ''};
@@ -232,7 +230,7 @@ const StyledColoredBox = styled(motion.div)`
       margin-top: 6%;
     }
   }
-`
+`;
 
 const StyledFlexBox = styled.div`
   display: flex;
@@ -242,6 +240,6 @@ const StyledFlexBox = styled.div`
     margin-bottom: 2.5rem;
     flex-wrap: nowrap;
   }
-`
+`;
 
-export default Home
+export default Home;
