@@ -19,26 +19,25 @@ const DashboardLayout: React.FC = () => {
     <StyledDashboardLayout>
       <HorizontalNav
         sidebarOpen={toggle}
-        profileImage=""
+        profileImage=''
         sidebarToggle={toggleSidebar}
       />
-      <div className="wrapper">
+      <div className='wrapper'>
         <SideNav open={toggle} />
         <div className='containBox'>
           <main>
             <Switch>
               <ProtectedRoute path={`${path}/`} exact component={Dashboard} />
-              <ProtectedRoute path={`${path}/setting`} component={Settings} />
+              <ProtectedRoute path={`${path}/:setting`} component={Settings} />
             </Switch>
           </main>
-
         </div>
       </div>
     </StyledDashboardLayout>
-  )
-}
+  );
+};
 
-export default DashboardLayout
+export default DashboardLayout;
 
 const StyledDashboardLayout = styled.div`
   display: flex;
@@ -95,4 +94,4 @@ const StyledDashboardLayout = styled.div`
       }
     }
   }
-`
+`;
