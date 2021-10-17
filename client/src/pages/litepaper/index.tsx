@@ -74,7 +74,9 @@ const LitePaper = () => {
           authenticating users on their web3 apps.
         </TextWrap>
         <Spacer size='1rem' />
-        <TextWrap fontSize='h3'>Identity</TextWrap>
+        <TextWrap fontSize='h3' bold='bold'>
+          Identity
+        </TextWrap>
         <TextWrap>
           The Quaiota enables every user to claim their identity as a
           non-fungible token stored on the blockchain.
@@ -90,7 +92,9 @@ const LitePaper = () => {
           human-readable non-fungible QUA ID.
         </TextWrap>
         <Spacer size='1rem' />
-        <TextWrap fontSize='h3'>Utilities</TextWrap>
+        <TextWrap fontSize='h3' bold='bold'>
+          Utilities
+        </TextWrap>
         <TextWrap>
           Utilities are referred to: as apps and systems on the Quaiota. Every
           application on the quaiota features a system that enables several
@@ -104,25 +108,33 @@ const LitePaper = () => {
         <Spacer size='1rem' />
         <TextWrap fontSize='h2'>How Does Quaiota Work?</TextWrap>
         <Spacer size='.5rem' />
-        <TextWrap fontSize='h3'>One identity. Multiple utilities.</TextWrap>
+        <TextWrap fontSize='h3' bold='bold'>
+          One identity. Multiple utilities.
+        </TextWrap>
         <TextWrap>
           By claiming your identity as an NFT on the Quaiota, you can discover
           and connect to any web3 app almost immediately.
         </TextWrap>
         <Spacer size='1rem' />
-        <TextWrap fontSize='h3'>SDK for developers</TextWrap>
+        <TextWrap fontSize='h3' bold='bold'>
+          SDK for developers
+        </TextWrap>
         <TextWrap>
           The Quaiota provides an easy-to-use SDK that is flexible for
           developers to architect incentives on their web3 apps.
         </TextWrap>
         <Spacer size='1rem' />
-        <TextWrap fontSize='h3'>PWA wherever you are</TextWrap>
+        <TextWrap fontSize='h3' bold='bold'>
+          PWA wherever you are
+        </TextWrap>
         <TextWrap>
           The Quaiota network lives on the web. Anyone from anywhere can access
           it as a progressive web app (PWA).
         </TextWrap>
         <Spacer size='1rem' />
-        <TextWrap fontSize='h3'>Smart contracts code as laws</TextWrap>
+        <TextWrap fontSize='h3' bold='bold'>
+          Smart contracts code as laws
+        </TextWrap>
         <TextWrap>
           Every decision and incentive is implemented by the smart contract that
           a developer specified for their app.
@@ -130,7 +142,9 @@ const LitePaper = () => {
         <Spacer size='1rem' />
         <TextWrap fontSize='h2'>QUA Tokens - $QUA</TextWrap>
         <Spacer size='.5rem' />
-        <TextWrap fontSize='h3'>$QUA</TextWrap>
+        <TextWrap fontSize='h3' bold='bold'>
+          $QUA
+        </TextWrap>
         <TextWrap>
           tokens are the native token of the Qua ecosystem. Holders of the token
           can vote, participate in activities, and architect systems across
