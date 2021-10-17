@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+// import Markdown from 'react-markdown';
+// import remarkGfm from 'remark-gfm';
 import Spacer from '../../ui/atom/spacer/spacer';
 import TextWrap from '../../ui/atom/typography/TextWrap';
 import breakpoint from '../../ui/configs/breakpoint';
-import litepaper from './litepaper';
+// import litepaper from './litepaper';
 
 const LitePaper = () => {
   return (
