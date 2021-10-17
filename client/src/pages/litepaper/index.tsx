@@ -1,10 +1,4 @@
 import styled from '@emotion/styled';
-// import Markdown from 'react-markdown';
-// import remarkGfm from 'remark-gfm';
-import Spacer from '../../ui/atom/spacer/spacer';
-import TextWrap from '../../ui/atom/typography/TextWrap';
-import breakpoint from '../../ui/configs/breakpoint';
-// import litepaper from './litepaper';
 
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import { useState } from 'react';
@@ -15,10 +9,11 @@ import PDFLitePaper from './litepaperBase64PDF';
 
 const LitePaper = () => {
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [downloadLink, setDownloadLink] = useState('');
 
   function onDocumentLoadSuccess({ numPages }: any) {
     setNumPages(numPages);
+    setDownloadLink(litepaperPDF);
   }
   return (
     <StyledLitePaper>
@@ -31,6 +26,16 @@ const LitePaper = () => {
             <Page key={`page_${index + 1}`} pageNumber={index + 1} />
           ))}
         </Document>
+        <div>
+          {downloadLink && (
+            <a
+              className='download-link'
+              href={downloadLink}
+              download='Quaiota litepaper'>
+              download as PDF
+            </a>
+          )}
+        </div>
       </div>
     </StyledLitePaper>
   );
@@ -48,5 +53,10 @@ const StyledLitePaper = styled.div`
     margin: 0 auto;
     padding-inline: 1rem;
     padding-block: 3rem;
+
+    .download-link {
+      font-size: 1rem;
+      font-weight: bold;
+    }
   }
 `;
