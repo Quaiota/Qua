@@ -32,11 +32,9 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Switch>
-            <ProtectedRoute
-              exact
-              path='/dashboard'
-              component={() => <DashboardLayout />}
-            />
+            <ProtectedRoute exact path='/dashboard'>
+              <DashboardLayout />
+            </ProtectedRoute>
             <ProtectedRoute exact path='/social' component={SocialWall} />
 
             <Route path='/onboarding/secure' component={SecureAccount} />

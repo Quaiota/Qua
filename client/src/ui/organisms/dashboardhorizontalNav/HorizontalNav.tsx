@@ -25,7 +25,8 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
   const store = useStore().userStore;
   const [dropdown, setDropdown] = useState(false);
   const { url } = useRouteMatch();
-
+  const dropdownInitState = { opacity: 0, display: 'none' };
+  const dropdownAnimate = { opacity: 1, display: 'flex' };
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className='logo'>
@@ -52,8 +53,8 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
           image={profileImage}
         />
         <StyledDropdown
-          initial={{ opacity: 0 }}
-          animate={dropdown ? { opacity: 1 } : { opacity: 0 }}>
+          initial={dropdownInitState}
+          animate={dropdown ? dropdownAnimate : dropdownInitState}>
           <Link to={`${url}/setting`}>Settings</Link>
           <Link to='#' onClick={store.logout}>
             Log out
@@ -76,7 +77,7 @@ export const StyledDropdown = styled(motion.div)`
   width: fit-content;
   max-width: 145px;
   overflow: hidden;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   width: 100%;
   background: ${({ theme }) => theme.black.dark2 + 'ee'};
