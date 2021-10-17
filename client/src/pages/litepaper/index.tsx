@@ -39,7 +39,7 @@ const LitePaper = () => {
         </TextWrap>
         <Spacer size='.7rem' />
         <TextWrap>
-          TThe Quaiota is a decentralized, permissionless network that solves
+          The Quaiota is a decentralized, permissionless network that solves
           identity and utility as a problem we experience on web3 today.
         </TextWrap>
         <Spacer size='1rem' />
@@ -62,7 +62,7 @@ const LitePaper = () => {
           anyone can have multiple addresses or identities that enables them to
           interact with web3 apps, although these addresses or identities can be
           difficult to keep track of or honor for people existing in a social
-          system.ther by clicking a file in the tree.
+          system. There by clicking a file in the tree.
         </TextWrap>
         <Spacer size='1rem' />
         <TextWrap fontSize='h2'>The Quaiota difference</TextWrap>
