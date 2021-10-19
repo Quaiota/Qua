@@ -1,36 +1,32 @@
-
-import { observer } from 'mobx-react';
-import styled from '@emotion/styled';
-import LineChart from '../../ui/molecules/chart/LineChart';
-import Spacer from '../../ui/atom/spacer/spacer';
-import NetWorth from '../../ui/molecules/networth/NetWorth';
-import ProfileCard from '../../ui/molecules/profileCard/ProfileCard';
-import WalletList from '../../ui/molecules/walletList/WalletList';
-import breakpoint from '../../ui/configs/breakpoint';
-import { Route, useRouteMatch } from 'react-router';
-import Settings from './dashboardSettings/Settings';
-
+import styled from '@emotion/styled'
+import { observer } from 'mobx-react'
+import { Route, useRouteMatch } from 'react-router'
+import Spacer from '../../ui/atom/spacer/spacer'
+import breakpoint from '../../ui/configs/breakpoint'
+import LineChart from '../../ui/molecules/chart/LineChart'
+import NetWorth from '../../ui/molecules/networth/NetWorth'
+import ProfileCard from '../../ui/molecules/profileCard/ProfileCard'
+import WalletList from '../../ui/molecules/walletList/WalletList'
+import Settings from './dashboardSettings/Settings'
 
 const Dashboard = observer(() => {
-  const { url } = useRouteMatch();
+  const { url } = useRouteMatch()
   return (
-
     <MainBox>
       <Route path={`${url}/settings`} component={Settings} />
-      <div className='chart'>
+      <div className="chart">
         <LineChart />
       </div>
-      <section className='profile-info'>
+      <section className="profile-info">
         <ProfileCard />
-        <Spacer size='1rem' />
+        <Spacer size="1rem" />
         <NetWorth />
 
         <WalletList />
       </section>
     </MainBox>
-  );
-});
-
+  )
+})
 
 const MainBox = styled.div`
   width: 100%;
@@ -43,8 +39,9 @@ const MainBox = styled.div`
   overflow: auto;
 
   .chart {
-    max-width: 1200px;
+    max-width: 1080px;
     width: 100%;
+    margin: 0 auto;
   }
   .profile-info {
     padding-block: 1rem;
@@ -60,9 +57,9 @@ const MainBox = styled.div`
     padding: 1rem 1rem 6rem;
   }
 
-  @media (min-width: ${breakpoint.tab}px) {
+  @media (min-width: ${breakpoint.desktop}px) {
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-between;
   }
 `
 

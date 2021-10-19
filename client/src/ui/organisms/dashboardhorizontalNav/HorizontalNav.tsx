@@ -1,45 +1,46 @@
-import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
-import { useStore } from '../../../App';
-import CircleFrame from '../../atom/circle-frame/CircleFrame';
-import CloseIcon from '../../atom/icons/Close';
-import Menubar from '../../atom/icons/MenuBar';
-import Logo from '../../atom/logo/Logo';
-import breakpoint from '../../configs/breakpoint';
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { Link, useRouteMatch } from 'react-router-dom'
+import { useStore } from '../../../App'
+import CircleFrame from '../../atom/circle-frame/CircleFrame'
+import CloseIcon from '../../atom/icons/Close'
+import Menubar from '../../atom/icons/MenuBar'
+import Logo from '../../atom/logo/Logo'
+import breakpoint from '../../configs/breakpoint'
 
 export interface IHorizontalNav {
-  sidebarToggle?: () => void;
-  title?: string;
-  profileImage: string;
-  sidebarOpen?: boolean;
+  sidebarToggle?: () => void
+  title?: string
+  profileImage: string
+  sidebarOpen?: boolean
 }
 
 const HorizontalNav: React.FC<IHorizontalNav> = ({
   sidebarToggle,
   title,
   profileImage,
-  sidebarOpen,
+  sidebarOpen
 }) => {
-  const store = useStore().userStore;
-  const [dropdown, setDropdown] = useState(false);
-  const { url } = useRouteMatch();
-  const dropdownInitState = { opacity: 0, display: 'none' };
-  const dropdownAnimate = { opacity: 1, display: 'flex' };
+  const store = useStore().userStore
+  const [dropdown, setDropdown] = useState(false)
+  const { url } = useRouteMatch()
+  const dropdownInitState = { opacity: 0, display: 'none' }
+  const dropdownAnimate = { opacity: 1, display: 'flex' }
   return (
     <StyledNav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div className='logo'>
+      <div className="logo">
         <button
           onClick={sidebarToggle && sidebarToggle}
-          className='sidebar-toggler'>
+          className="sidebar-toggler"
+        >
           {!!sidebarOpen && sidebarOpen ? <CloseIcon /> : <Menubar />}
         </button>
         {title ? (
           <h1>{title}</h1>
         ) : (
-          <div className='logo'>
-            <Logo size='lg' />
+          <div className="logo">
+            <Logo size="lg" />
           </div>
         )}
       </div>
@@ -47,25 +48,26 @@ const HorizontalNav: React.FC<IHorizontalNav> = ({
       <div>
         <CircleFrame
           onClick={() => {
-            setDropdown((prev) => !prev);
+            setDropdown((prev) => !prev)
           }}
-          circleSize='sm'
+          circleSize="sm"
           image={profileImage}
         />
         <StyledDropdown
           initial={dropdownInitState}
-          animate={dropdown ? dropdownAnimate : dropdownInitState}>
+          animate={dropdown ? dropdownAnimate : dropdownInitState}
+        >
           <Link to={`${url}/setting`}>Settings</Link>
-          <Link to='#' onClick={store.logout}>
+          <Link to="#" onClick={store.logout}>
             Log out
           </Link>
         </StyledDropdown>
       </div>
     </StyledNav>
-  );
-};
+  )
+}
 
-export default HorizontalNav;
+export default HorizontalNav
 
 export const StyledDropdown = styled(motion.div)`
   position: absolute;
@@ -96,7 +98,7 @@ export const StyledDropdown = styled(motion.div)`
       background: ${({ theme }) => theme.black.dark1 + 'de'};
     }
   }
-`;
+`
 
 const StyledNav = styled(motion.nav)`
   position: fixed;
@@ -104,7 +106,8 @@ const StyledNav = styled(motion.nav)`
   z-index: 1000;
   width: 100%;
   min-height: 45px;
-  background: ${({ theme }) => theme.black.dark4};
+  background: ${({ theme }) => theme.black.matteblack};
+  border-bottom: 1px ${({ theme }) => theme.primary.sea3 + '0a'} solid;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,4 +136,4 @@ const StyledNav = styled(motion.nav)`
       margin-right: 1rem;
     }
   }
-`;
+`
