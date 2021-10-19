@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { lazy, useState } from 'react';
+import { Link, Switch, useRouteMatch } from 'react-router-dom';
 import { useStore } from '../../App';
+import ProtectedRoute from '../../auth/ProtectedRoute';
 import Button from '../atom/button/Button';
 import MoreHorizontal from '../atom/icons/MoreHorizontal';
 import TextWrap from '../atom/typography/TextWrap';
@@ -10,9 +11,12 @@ import SocialSideNav from '../molecules/socialNav/SocialSideNav';
 import SocialTopNav from '../molecules/socialNav/SocialTopNav';
 import { StyledDropdown } from '../organisms/dashboardhorizontalNav/HorizontalNav';
 
-const SocialLayout: React.FC = (props) => {
+const SocialWall = lazy(() => import('../../pages/Social/SocialWall'));
+
+const SocialLayout: React.FC = () => {
   const [dropdown, setDropdown] = useState(false);
   const store = useStore().userStore;
+  const { path } = useRouteMatch();
 
   return (
     <StyledSocialLayout>
@@ -22,7 +26,11 @@ const SocialLayout: React.FC = (props) => {
         </aside>
         <main>
           <SocialTopNav />
-          <section className='contents'>{props.children}</section>
+          <section className='contents'>
+            <Switch>
+              <ProtectedRoute path={`${path}`} exact component={SocialWall} />
+            </Switch>
+          </section>
         </main>
         <div className='profile'>
           <div className='title'>
