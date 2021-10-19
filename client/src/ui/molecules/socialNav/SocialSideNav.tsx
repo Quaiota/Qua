@@ -1,37 +1,39 @@
-import styled from '@emotion/styled';
-import Button from '../../atom/button/Button';
-import CircleFrame from '../../atom/circle-frame/CircleFrame';
-import AppsIcon from '../../atom/icons/AppsIcon';
-import BellIconGray from '../../atom/icons/BellIconGray';
-import SendPostIcon from '../../atom/icons/SendPostIcon';
-import TextWrap from '../../atom/typography/TextWrap';
-import breakpoint from '../../configs/breakpoint';
+import styled from '@emotion/styled'
+import { Link } from 'react-router-dom'
+import Button from '../../atom/button/Button'
+import CircleFrame from '../../atom/circle-frame/CircleFrame'
+import AppsIcon from '../../atom/icons/AppsIcon'
+import BellIconGray from '../../atom/icons/BellIconGray'
+import SendPostIcon from '../../atom/icons/SendPostIcon'
+import breakpoint from '../../configs/breakpoint'
 
 export const SocialSideNav = () => {
   return (
     <StyledSocialNav>
-      <div className='title'>
-        <TextWrap fontSize='h2'>Social</TextWrap>
+      <div className="title">
+        <SocialLogo>
+          <Link to="/social">Social </Link>
+        </SocialLogo>
       </div>
-      <div className='tabs'>
-        <Button className='tab-btn' btnType='transparent'>
+      <div className="tabs">
+        <Button className="tab-btn" btnType="transparent">
           <AppsIcon />
         </Button>
-        <Button className='tab-btn' btnType='transparent'>
+        <Button className="tab-btn" btnType="transparent">
           <BellIconGray />
         </Button>
-        <Button className='tab-btn' btnType='transparent'>
-          <CircleFrame circleSize='sm' />
+        <Button className="tab-btn" btnType="transparent">
+          <CircleFrame circleSize="sm" />
         </Button>
-        <button className='send-post'>
+        <button className="send-post">
           <SendPostIcon />
         </button>
       </div>
     </StyledSocialNav>
-  );
-};
+  )
+}
 
-export default SocialSideNav;
+export default SocialSideNav
 
 const StyledSocialNav = styled.div`
   display: flex;
@@ -72,7 +74,7 @@ const StyledSocialNav = styled.div`
       flex-direction: column;
       row-gap: 1.5rem;
       display: flex;
-      align-self: center;
+      align-items: center;
       tab-btn {
         display: block;
         width: 100%;
@@ -81,4 +83,19 @@ const StyledSocialNav = styled.div`
       }
     }
   }
-`;
+`
+
+const SocialLogo = styled.h1`
+  font-style: normal;
+  font-size: 24px;
+  line-height: 33px;
+  cursor: pointer;
+
+  & a {
+    font-family: Darker Grotesque;
+    font-weight: 900;
+
+    text-decoration: none;
+    color: ${({ theme }) => theme.primary.sea3};
+  }
+`

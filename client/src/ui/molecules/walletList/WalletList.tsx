@@ -31,7 +31,7 @@ const WalletList: React.FC = () => {
 
 const StyledWalletList = styled(motion.div)`
   background: ${({ theme }) => theme.black.dark2};
-  border-radius: 12px 12px 0 0;
+  border-radius: 24px 24px 0 0;
   overflow: hidden;
   padding: 0.5rem 1.5rem;
   position: absolute;

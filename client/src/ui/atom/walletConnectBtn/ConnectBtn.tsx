@@ -1,23 +1,25 @@
-import styled from '@emotion/styled';
-import Button from '../button/Button';
-import SendIcon from '../icons/SendIcon';
-import TextWrap from '../typography/TextWrap';
+import styled from '@emotion/styled'
+import Button from '../button/Button'
+import Metamask from '../icons/Metamask'
+import TextWrap from '../typography/TextWrap'
 
 const ConnectBtn = () => {
   return (
-    <StyledConnectBtn>
-      <div className='wallet'>
-        <span>
-          <SendIcon />
-        </span>
-        <TextWrap fontSize='bodymd'>Metamask</TextWrap>
-      </div>
-      <Button>Connect</Button>
-    </StyledConnectBtn>
-  );
-};
+    <>
+      <StyledConnectBtn>
+        <div className="wallet">
+          <span>
+            <Metamask />
+          </span>
+          <TextWrap fontSize="body">Metamask</TextWrap>
+        </div>
+        <Button>Connect</Button>
+      </StyledConnectBtn>
+    </>
+  )
+}
 
-export default ConnectBtn;
+export default ConnectBtn
 
 const StyledConnectBtn = styled.div`
   display: flex;
@@ -29,4 +31,4 @@ const StyledConnectBtn = styled.div`
       margin-right: 1rem;
     }
   }
-`;
+`

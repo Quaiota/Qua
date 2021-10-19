@@ -47,7 +47,7 @@ export const StyledButton = styled.button<IButton>`
     btnType === 'solid' &&
     css`
       /* border: 1px ${bgColor ?? theme.primary.white + '00'} solid; */
-      background: ${bgColor ? bgColor : theme.primary.white + '21'};
+      background: ${bgColor ? bgColor : theme.primary.sea3 + '12'};
 
       :disabled {
         background: ${bgColor ? bgColor + '33' : theme.primary.white + '22'};
