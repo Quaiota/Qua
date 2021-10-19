@@ -1,22 +1,12 @@
-import ProtectedRoute from '../../auth/ProtectedRoute';
-import SocialLayout from '../../ui/layout/SocialLayout';
+import { FC } from 'react';
 import Post from '../../ui/organisms/post/Post';
 
-const SocialWall = () => {
+const SocialWall: FC = () => {
   return (
-    <SocialLayout>
-      <ProtectedRoute
-        path='/social/feed'
-        component={() => (
-          <>
-            <Post />
-          </>
-        )}
-      />
-      {/* <Post />
+    <>
       <Post />
-      <Post /> */}
-    </SocialLayout>
+      <Post />
+    </>
   );
 };
 
