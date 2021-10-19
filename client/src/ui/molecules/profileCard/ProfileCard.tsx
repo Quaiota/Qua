@@ -20,7 +20,7 @@ const ProfileCard: React.FC<IProfileCard> = () => {
         <Spacer size="12px" />
         <TextWrap>@Roosevelt</TextWrap>
         <Spacer size="1rem" />
-        <Button btnType="outlined">Connect wallet</Button>
+        <Button btnType="solid">Connect wallet</Button>
       </div>
     </StyledCard>
   )

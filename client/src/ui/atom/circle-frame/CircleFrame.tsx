@@ -1,48 +1,51 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 export interface ICircleFrame {
-  image?: string;
-  icon?: string;
-  border?: boolean;
-  borderColor?: string;
-  circleSize: 'sm' | 'md' | 'lg';
-  onClick?: () => void;
+  image?: string
+  icon?: string
+  border?: boolean
+  borderColor?: string
+  circleSize: 'sm' | 'md' | 'lg'
+  onClick?: () => void
 }
 
 const CircleFrame: React.FC<ICircleFrame> = ({ icon, image, ...rest }) => {
   return (
     <Container {...rest}>
       {image ? (
-        <img src={image} alt='display' />
+        <img src={image} alt="display" />
       ) : (
-        <i className='fas fa-user'></i>
+        <i className="fas fa-user"></i>
       )}
     </Container>
-  );
-};
+  )
+}
 
 const lg = css`
   width: 6.25rem;
   height: 6.25rem;
   .fas {
-    font-size: 4rem;
+    font-size: 2rem;
+    opacity: 0.8;
   }
-`;
+`
 const sm = css`
   width: 28px;
   height: 28px;
   .fas {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
   }
-`;
+`
 const md = css`
   width: 40px;
   height: 40px;
   .fas {
     font-size: 2rem;
+    opacity: 0.8;
   }
-`;
+`
 
 const Container = styled.div<ICircleFrame>`
   ${sm}
@@ -68,6 +71,6 @@ const Container = styled.div<ICircleFrame>`
   img {
     width: 100%;
   }
-`;
+`
 
-export default CircleFrame;
+export default CircleFrame

@@ -114,7 +114,7 @@ const StyledSidebarItem = styled(Link)`
   border-radius: 12px;
   text-decoration: none;
   :hover {
-    background: ${({ theme }) => theme.black.dark2};
+    background: ${({ theme }) => theme.black.dark3};
   }
   p {
     padding-left: 22px;
