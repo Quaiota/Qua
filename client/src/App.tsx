@@ -6,6 +6,8 @@ import GlobalStyles from './GlobalStyle';
 import { RootStore } from './mobx/rootStore';
 import { iStore } from './mobx/store_interface';
 import ConstructionSite from './pages/ConstructionSite';
+import Dashboard from './pages/dashboard/Dashboard';
+import Settings from './pages/dashboard/dashboardSettings/Settings';
 
 import Home from './pages/Home';
 import LitePaper from './pages/litepaper';
@@ -32,9 +34,11 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Switch>
-            <ProtectedRoute exact path='/dashboard'>
-              <DashboardLayout />
-            </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path='/dashboard'
+              render={() => <h1>Hello world</h1>}
+            />
             <ProtectedRoute exact path='/social' component={SocialWall} />
 
             <Route path='/onboarding/secure' component={SecureAccount} />
