@@ -1,13 +1,27 @@
 import styled from '@emotion/styled';
+import { useHistory } from 'react-router';
+import { useStore } from '../../App';
 import Button from '../../ui/atom/button/Button';
 import TextWrap from '../../ui/atom/typography/TextWrap';
 import breakpoint from '../../ui/configs/breakpoint';
 import CheckBox from '../../ui/molecules/checkBox/CheckBox';
 
 const SocialOnBoarding = () => {
+  const history = useHistory();
+  const { setOnboardStatus } = useStore().userStore;
+  const handleForm = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    // todo write submission logic;
+
+    // set onboard status
+    setOnboardStatus();
+    // todo: route back to social
+    history.push('/social');
+  };
   return (
     <SocialOnboard>
-      <form className='wrapper'>
+      <form className='wrapper' onSubmit={handleForm}>
         <section className='pager'>
           <TextWrap fontSize='bodymd' bold='bold'>
             Onboarding
