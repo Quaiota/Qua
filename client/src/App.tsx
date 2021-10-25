@@ -12,6 +12,7 @@ import LitePaper from './pages/litepaper';
 import OnBoard from './pages/onboarding';
 import SecureAccount from './pages/onboarding/SecureAccount';
 import VerifyPassword from './pages/onboarding/VerifyPassword';
+import SocialOnBoarding from './pages/Social/SocialOnBoarding';
 
 const SocialLayout = lazy(() => import('./ui/layout/SocialLayout'));
 const DashboardLayout = lazy(() => import('./ui/layout/DashboardLayout'));
@@ -36,6 +37,11 @@ function App() {
             <Switch>
               <ProtectedRoute path='/social' component={SocialLayout} />
               <ProtectedRoute path='/dashboard' component={DashboardLayout} />
+              <ProtectedRoute
+                exact
+                path='/onboarding/social'
+                component={SocialOnBoarding}
+              />
 
               <Route path='/onboarding/secure' component={SecureAccount} />
               <Route path='/onboarding/verify' component={VerifyPassword} />

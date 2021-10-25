@@ -7,7 +7,7 @@ import ShareIcon from '../../atom/icons/ShareIcon';
 import TextWrap from '../../atom/typography/TextWrap';
 import ProfileHeader from '../../molecules/profileHeader/ProfileHeader';
 
-const Comment = () => {
+const CommentComponent: React.FC = () => {
   return (
     <StyledComment>
       <ProfileHeader size='default' />
@@ -38,7 +38,6 @@ const Comment = () => {
 
 const StyledComment = styled.div`
   max-width: 400px;
-  /* border: 1px gray solid; */
   margin: 0 auto;
   padding-block: 12px;
   .text {
@@ -66,4 +65,4 @@ const StyledComment = styled.div`
   }
 `;
 
-export default Comment;
+export default CommentComponent;

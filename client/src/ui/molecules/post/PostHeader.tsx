@@ -3,14 +3,18 @@ import styled from '@emotion/styled';
 import EyeIcon from '../../atom/icons/EyeIcon';
 import TextWrap from '../../atom/typography/TextWrap';
 
-const url =
-  'https://images.unsplash.com/photo-1593642702909-dec73df255d7?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80';
+// const url =
+//   'https://images.unsplash.com/photo-1593642702909-dec73df255d7?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80';
 
-const PostHeader = () => {
+interface IPostHeader {
+  imageUrl?: string;
+}
+
+const PostHeader: React.FC<IPostHeader> = ({ imageUrl }) => {
   const color = useTheme();
   return (
-    <StyledHeader url={url}>
-      <img src={url} alt='' />
+    <StyledHeader url={imageUrl}>
+      {imageUrl && <img src={imageUrl} alt='' />}
       <div className='info'>
         <div>
           <EyeIcon />

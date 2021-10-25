@@ -6,17 +6,34 @@ export interface IUserStore {
 }
 
 export class UserStore implements IUserStore {
-  @observable private auth = false;
+  @observable userObject = {
+    auth: false,
+    onboarded: false,
+  };
 
-  @action async setAuth(auth: boolean) {
-    this.auth = auth;
-    localStorage.setItem('auth', JSON.stringify(this.auth));
+  @action setOnboardStatus = async () => {
+    this.userObject.onboarded = true;
+
+    localStorage.setItem('userObject', JSON.stringify(this.userObject));
+  };
+
+  @action async getOnboardStatus() {
+    const localStorageUserObj = localStorage.getItem('userObject');
+    if (!localStorageUserObj) return this.userObject.onboarded;
+    const userObj = JSON.parse(localStorageUserObj);
+    return userObj.onboarded;
   }
 
+  @action setAuth = async (auth: boolean) => {
+    this.userObject.auth = auth;
+    localStorage.setItem('userObject', JSON.stringify(this.userObject));
+  };
+
   @action async getAuth() {
-    const authstate = localStorage.getItem('auth');
-    if (!authstate) return this.auth;
-    return JSON.parse(authstate);
+    const localStorageUserObj = localStorage.getItem('userObject');
+    if (!localStorageUserObj) return this.userObject.onboarded;
+    const userObj = JSON.parse(localStorageUserObj);
+    return userObj.auth;
   }
 
   @action async logout() {

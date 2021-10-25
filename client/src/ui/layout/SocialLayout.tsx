@@ -3,6 +3,7 @@ import React, { lazy, useState } from 'react';
 import { Link, Switch, useRouteMatch } from 'react-router-dom';
 import { useStore } from '../../App';
 import ProtectedRoute from '../../auth/ProtectedRoute';
+import PostPage from '../../pages/Social/post/PostPage';
 import Button from '../atom/button/Button';
 import MoreHorizontal from '../atom/icons/MoreHorizontal';
 import TextWrap from '../atom/typography/TextWrap';
@@ -17,7 +18,8 @@ const SocialLayout: React.FC = () => {
   const [dropdown, setDropdown] = useState(false);
   const store = useStore().userStore;
   const { path } = useRouteMatch();
-
+  const dropdownInitState = { opacity: 0, display: 'none' };
+  const dropdownAnimate = { opacity: 1, display: 'flex' };
   return (
     <StyledSocialLayout>
       <Container>
@@ -29,6 +31,11 @@ const SocialLayout: React.FC = () => {
           <section className='contents'>
             <Switch>
               <ProtectedRoute path={`${path}`} exact component={SocialWall} />
+              <ProtectedRoute
+                path={`${path}/post/:id`}
+                exact
+                component={PostPage}
+              />
             </Switch>
           </section>
         </main>
@@ -47,8 +54,8 @@ const SocialLayout: React.FC = () => {
               <MoreHorizontal />
             </Button>
             <StyledDropdown
-              initial={{ opacity: 0 }}
-              animate={dropdown ? { opacity: 1 } : { opacity: 0 }}>
+              initial={dropdownInitState}
+              animate={dropdown ? dropdownAnimate : dropdownInitState}>
               <Link to='/dashboard'>Qua profile</Link>
               <Link to='#' onClick={store.logout}>
                 Log out
