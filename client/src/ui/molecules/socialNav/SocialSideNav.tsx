@@ -52,7 +52,7 @@ const StyledSocialNav = styled.div`
 
   .send-post {
     border: none;
-    background: ${({ theme }) => theme.primary.hot2};
+    background: ${({ theme }) => theme.primary.hot1};
     /* padding: 1rem; */
     width: 50px;
     height: 50px;
@@ -62,10 +62,12 @@ const StyledSocialNav = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    margin-top: 4rem;
   }
   @media (min-width: ${breakpoint.tab}px) {
     flex-direction: column;
     max-width: max-content;
+    row-gap: 2rem;
 
     .title {
       display: block;

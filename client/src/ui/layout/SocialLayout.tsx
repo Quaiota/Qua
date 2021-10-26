@@ -87,6 +87,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column-reverse;
 
+  @media (min-width: ${breakpoint.desktop}px) {
+    overflow-y: hidden;
+    height: 100vh;
+  }
+
   .sidenav,
   .profile {
     display: block;
@@ -144,7 +149,7 @@ const Container = styled.div`
     }
     main {
       flex-grow: 2;
-      border-inline: 1px ${({ theme }) => theme.primary.white + '23'} solid;
+      border-inline: 1px ${({ theme }) => theme.primary.sea3 + '16'} solid;
     }
   }
 `

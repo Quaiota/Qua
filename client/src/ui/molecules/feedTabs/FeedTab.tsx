@@ -1,26 +1,28 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import Button from '../../atom/button/Button';
-import TabMenu from '../../atom/icons/TabMenu';
+import styled from '@emotion/styled'
+import React from 'react'
+import Button from '../../atom/button/Button'
+import TabMenu from '../../atom/icons/TabMenu'
+import Spacer from '../../atom/spacer/spacer'
 
-const tabs = ['top', 'Academia', 'Entertainment', 'Science', 'Tech'];
+const tabs = ['top', 'Academia', 'Entertainment', 'Science', 'Tech']
 
 const FeedTabs = () => {
   return (
     <StyledFeedTab>
       {tabs.map((name) => (
-        <Button btnType='solid' className='tab'>
+        <Button btnType="solid" className="tab">
           {name}
         </Button>
       ))}
-      <button type='button' className='more-tabs'>
+      <button type="button" className="more-tabs">
         <TabMenu />
       </button>
+      <Spacer size="1.2rem" />
     </StyledFeedTab>
-  );
-};
+  )
+}
 
-export default FeedTabs;
+export default FeedTabs
 
 const StyledFeedTab = styled.div`
   display: flex;
@@ -28,9 +30,10 @@ const StyledFeedTab = styled.div`
   overflow-x: auto;
   align-items: center;
   position: relative;
+  border-bottom: 1px ${({ theme }) => theme.primary.sea3 + '16'} solid;
 
   .tab {
-    margin-right: 12px;
+    margin: 4px 12px 8px 0;
     font-weight: bold;
     transition: 300ms linear;
     padding-block: 8px;
@@ -54,8 +57,9 @@ const StyledFeedTab = styled.div`
     border: none;
     outline: none;
     cursor: pointer;
-    background: ${({ theme }) =>
-      `linear-gradient(90deg,${theme.black.matteblack}22 , ${theme.black.matteblack})`};
+    background: ${({ theme }) => theme.black.matteblack};
+    box-shadow: -4px 0px 20px rgba(14, 15, 15, 0.8);
+
     top: 0;
     bottom: 0;
     color: white;
@@ -63,4 +67,4 @@ const StyledFeedTab = styled.div`
     justify-content: center;
     align-items: center;
   }
-`;
+`
