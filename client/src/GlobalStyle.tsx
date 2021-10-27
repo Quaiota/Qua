@@ -1,13 +1,13 @@
-import { Global, css, useTheme } from '@emotion/react';
+import { css, Global, useTheme } from '@emotion/react'
 
 const GlobalStyles = () => {
-  const color = useTheme();
+  const color = useTheme()
   return (
     <Global
       styles={css`
         ::-webkit-scrollbar {
-          width: 8px;
-          height: 8px;
+          width: 0px;
+          height: 0px;
           border-radius: 1rem;
         }
         ::-webkit-scrollbar-track {
@@ -24,7 +24,7 @@ const GlobalStyles = () => {
         }
       `}
     />
-  );
-};
+  )
+}
 
-export default GlobalStyles;
+export default GlobalStyles

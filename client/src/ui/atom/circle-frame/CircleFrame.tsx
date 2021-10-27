@@ -26,7 +26,7 @@ const lg = css`
   width: 6.25rem;
   height: 6.25rem;
   .fas {
-    font-size: 2rem;
+    font-size: 2.4rem;
     opacity: 0.8;
   }
 `
@@ -42,7 +42,7 @@ const md = css`
   width: 40px;
   height: 40px;
   .fas {
-    font-size: 2rem;
+    font-size: 1.2rem;
     opacity: 0.8;
   }
 `
