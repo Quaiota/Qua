@@ -39,8 +39,8 @@ const sm = css`
   }
 `
 const md = css`
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   .fas {
     font-size: 1.2rem;
     opacity: 0.8;
