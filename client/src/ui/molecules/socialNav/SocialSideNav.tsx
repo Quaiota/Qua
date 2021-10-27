@@ -62,8 +62,12 @@ const StyledSocialNav = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    margin-top: 4rem;
+    
+    @media (min-width: ${breakpoint.desktop}px) {
+      margin-top: 4rem;
+    }
   }
+  
   @media (min-width: ${breakpoint.tab}px) {
     flex-direction: column;
     max-width: max-content;

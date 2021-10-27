@@ -90,6 +90,8 @@ const Container = styled.div`
   @media (min-width: ${breakpoint.desktop}px) {
     overflow-y: hidden;
     height: 100vh;
+    margin: 0 16rem auto;
+
   }
 
   .sidenav,
@@ -115,7 +117,7 @@ const Container = styled.div`
     padding-bottom: 10px;
   }
   main {
-    max-width: 540px;
+    max-width: 598px;
     height: 100%;
     width: 100%;
     padding-top: 0;
