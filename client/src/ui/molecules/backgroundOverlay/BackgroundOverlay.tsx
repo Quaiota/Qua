@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { boolean } from 'yup/lib/locale';
 
 interface IBackgroundOverlay {
   children: React.ReactNode;
