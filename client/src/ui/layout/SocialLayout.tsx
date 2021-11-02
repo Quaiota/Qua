@@ -1,34 +1,34 @@
-import styled from '@emotion/styled';
-import React, { lazy, useState } from 'react';
-import { Link, Switch, useRouteMatch } from 'react-router-dom';
-import { useStore } from '../../App';
-import ProtectedRoute from '../../auth/ProtectedRoute';
-import PostPage from '../../pages/Social/post/PostPage';
-import Button from '../atom/button/Button';
-import MoreHorizontal from '../atom/icons/MoreHorizontal';
-import TextWrap from '../atom/typography/TextWrap';
-import breakpoint from '../configs/breakpoint';
-import SocialSideNav from '../molecules/socialNav/SocialSideNav';
-import SocialTopNav from '../molecules/socialNav/SocialTopNav';
-import { StyledDropdown } from '../organisms/dashboardhorizontalNav/HorizontalNav';
+import styled from '@emotion/styled'
+import React, { lazy, useState } from 'react'
+import { Link, Switch, useRouteMatch } from 'react-router-dom'
+import { useStore } from '../../App'
+import ProtectedRoute from '../../auth/ProtectedRoute'
+import PostPage from '../../pages/Social/post/PostPage'
+import Button from '../atom/button/Button'
+import MoreHorizontal from '../atom/icons/MoreHorizontal'
+import TextWrap from '../atom/typography/TextWrap'
+import breakpoint from '../configs/breakpoint'
+import SocialSideNav from '../molecules/socialNav/SocialSideNav'
+import SocialTopNav from '../molecules/socialNav/SocialTopNav'
+import { StyledDropdown } from '../organisms/dashboardhorizontalNav/HorizontalNav'
 
-const SocialWall = lazy(() => import('../../pages/Social/SocialWall'));
+const SocialWall = lazy(() => import('../../pages/Social/SocialWall'))
 
 const SocialLayout: React.FC = () => {
-  const [dropdown, setDropdown] = useState(false);
-  const store = useStore().userStore;
-  const { path } = useRouteMatch();
-  const dropdownInitState = { opacity: 0, display: 'none' };
-  const dropdownAnimate = { opacity: 1, display: 'flex' };
+  const [dropdown, setDropdown] = useState(false)
+  const store = useStore().userStore
+  const { path } = useRouteMatch()
+  const dropdownInitState = { opacity: 0, display: 'none' }
+  const dropdownAnimate = { opacity: 1, display: 'flex' }
   return (
     <StyledSocialLayout>
       <Container>
-        <aside className='sidenav'>
+        <aside className="sidenav">
           <SocialSideNav />
         </aside>
         <main>
           <SocialTopNav />
-          <section className='contents'>
+          <section className="contents">
             <Switch>
               <ProtectedRoute path={`${path}`} exact component={SocialWall} />
               <ProtectedRoute
@@ -39,25 +39,27 @@ const SocialLayout: React.FC = () => {
             </Switch>
           </section>
         </main>
-        <div className='profile'>
-          <div className='title'>
-            <TextWrap fontSize='body' bold='bold'>
+        <div className="profile">
+          <div className="title">
+            <TextWrap fontSize="body" bold="bold">
               Social
             </TextWrap>
           </div>
           <div>
             <Button
               onClick={() => {
-                setDropdown((prev) => !prev);
+                setDropdown((prev) => !prev)
               }}
-              btnType='transparent'>
+              btnType="transparent"
+            >
               <MoreHorizontal />
             </Button>
             <StyledDropdown
               initial={dropdownInitState}
-              animate={dropdown ? dropdownAnimate : dropdownInitState}>
-              <Link to='/'>Qua profile</Link>
-              <Link to='#' onClick={store.logout}>
+              animate={dropdown ? dropdownAnimate : dropdownInitState}
+            >
+              <Link to="/">Qua profile</Link>
+              <Link to="#" onClick={store.logout}>
                 Log out
               </Link>
             </StyledDropdown>
@@ -65,10 +67,10 @@ const SocialLayout: React.FC = () => {
         </div>
       </Container>
     </StyledSocialLayout>
-  );
-};
+  )
+}
 
-export default SocialLayout;
+export default SocialLayout
 
 const StyledSocialLayout = styled.div`
   background: ${({ theme }) => theme.black.matteblack};
@@ -76,7 +78,7 @@ const StyledSocialLayout = styled.div`
   min-height: 100vh;
   position: relative;
   overflow-y: auto;
-`;
+`
 
 const Container = styled.div`
   max-width: 1200px;
@@ -89,6 +91,7 @@ const Container = styled.div`
     overflow-y: hidden;
     height: 100vh;
     margin: 0 16rem auto;
+
   }
 
   .sidenav,
@@ -151,4 +154,4 @@ const Container = styled.div`
       border-inline: 1px ${({ theme }) => theme.primary.sea3 + '16'} solid;
     }
   }
-`;
+`

@@ -1,28 +1,18 @@
-import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
-import { useState } from 'react';
 import { FC } from 'react-router/node_modules/@types/react';
 import Button from '../../../ui/atom/button/Button';
 import BoostIcon from '../../../ui/atom/icons/BoostIcon';
-import CancelIcon from '../../../ui/atom/icons/CancelIcon';
 import CommentIcon from '../../../ui/atom/icons/CommentIcon';
 import LikeIcon from '../../../ui/atom/icons/LikeIcon';
 import ShareIcon from '../../../ui/atom/icons/ShareIcon';
 import Spacer from '../../../ui/atom/spacer/spacer';
 import TextWrap from '../../../ui/atom/typography/TextWrap';
 import breakpoint from '../../../ui/configs/breakpoint';
-import BackgroundOverlay from '../../../ui/molecules/backgroundOverlay/BackgroundOverlay';
 import PostHeader from '../../../ui/molecules/post/PostHeader';
 import ProfileHeader from '../../../ui/molecules/profileHeader/ProfileHeader';
 import CommentComponent from '../../../ui/organisms/comment/Comment';
-import Modal from '../../../ui/organisms/modal/Modal';
 
 const PostPage: FC = () => {
-  const [showComment, setShowComment] = useState(false);
-  const [isModal, setModal] = useState(false);
-  const closeModal = () => setModal(false);
-  const color = useTheme();
-
   return (
     <FlexBox>
       <StyledPost>
@@ -68,7 +58,7 @@ const PostPage: FC = () => {
         </article>
 
         <StyledActionBar>
-          <Button btnType='transparent' onClick={() => setShowComment(true)}>
+          <Button btnType='transparent'>
             <CommentIcon />
             <span>0</span>
           </Button>
@@ -76,7 +66,7 @@ const PostPage: FC = () => {
             <LikeIcon />
             <span>0</span>
           </Button>
-          <Button btnType='transparent' onClick={() => setModal(true)}>
+          <Button btnType='transparent'>
             <BoostIcon />
             <span>0</span>
           </Button>
@@ -85,36 +75,22 @@ const PostPage: FC = () => {
           </Button>
         </StyledActionBar>
       </StyledPost>
-      <BackgroundOverlay open={showComment}>
-        <StyledThread>
-          <div className='head'>
-            <TextWrap bold='bold' fontSize='h2'>
-              Thread
-            </TextWrap>
-
-            <Button btnType='transparent' onClick={() => setShowComment(false)}>
-              <CancelIcon />
-            </Button>
-          </div>
-          <div className='comments'>
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-          </div>
-        </StyledThread>
-      </BackgroundOverlay>
-
-      <Modal
-        backgroundColor={color.black.matteblack}
-        open={isModal}
-        closeOnBackgroundClick
-        close={closeModal}></Modal>
+      <StyledThread>
+        <TextWrap bold='bold' fontSize='h2' className='header'>
+          Thread
+        </TextWrap>
+        <div className='comments'>
+          <CommentComponent />
+          <CommentComponent />
+          <CommentComponent />
+          <CommentComponent />
+          <CommentComponent />
+          <CommentComponent />
+          <CommentComponent />
+          <CommentComponent />
+          <CommentComponent />
+        </div>
+      </StyledThread>
     </FlexBox>
   );
 };
@@ -123,26 +99,22 @@ export default PostPage;
 
 const FlexBox = styled.div``;
 const StyledThread = styled.aside`
+  position: sticky;
+  top: 0;
   overflow-y: auto;
+  width: 100%;
   background: ${({ theme }) => theme.black.matteblack};
-  .head {
-    border-bottom: 1px ${({ theme }) => theme.primary.white + '23'} solid;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  z-index: 2000;
+
+  .header {
     padding: 1rem;
     padding-bottom: 0.48rem;
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    border-bottom: 1px ${({ theme }) => theme.primary.white + '23'} solid;
   }
 
   @media (min-width: ${breakpoint.tab}px) {
     max-width: 410px;
     position: absolute;
-    width: 100%;
     right: 260px;
     top: 0;
     bottom: 0;
