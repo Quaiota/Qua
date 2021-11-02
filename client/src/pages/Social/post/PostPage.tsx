@@ -16,12 +16,21 @@ import PostHeader from '../../../ui/molecules/post/PostHeader';
 import ProfileHeader from '../../../ui/molecules/profileHeader/ProfileHeader';
 import CommentComponent from '../../../ui/organisms/comment/Comment';
 import Modal from '../../../ui/organisms/modal/Modal';
+import ReplyInputField from '../../../ui/organisms/replyInputField/ReplyInputField';
 
 const PostPage: FC = () => {
   const [showComment, setShowComment] = useState(false);
   const [isModal, setModal] = useState(false);
   const closeModal = () => setModal(false);
   const color = useTheme();
+
+  const [reply, setReply] = useState('');
+
+  const postComment = () => {
+    // Handle comment Replies
+    console.log({ reply });
+    setReply('');
+  };
 
   return (
     <FlexBox>
@@ -107,10 +116,16 @@ const PostPage: FC = () => {
             <CommentComponent />
             <CommentComponent />
           </div>
+          <ReplyInputField
+            onSend={postComment}
+            setValue={setReply}
+            value={reply}
+          />
         </StyledThread>
       </BackgroundOverlay>
 
       <Modal
+        closeBtn={false}
         backgroundColor={color.black.matteblack}
         open={isModal}
         closeOnBackgroundClick
@@ -132,6 +147,10 @@ const StyledThread = styled.aside`
     align-items: center;
     padding: 1rem;
     padding-bottom: 0.48rem;
+    position: sticky;
+    top: 0;
+    background: ${({ theme }) => theme.black.matteblack};
+
     button {
       display: flex;
       justify-content: center;
