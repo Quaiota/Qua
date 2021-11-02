@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FC } from 'react-router/node_modules/@types/react';
 import Button from '../../../ui/atom/button/Button';
 import BoostIcon from '../../../ui/atom/icons/BoostIcon';
+import CancelIcon from '../../../ui/atom/icons/CancelIcon';
 import CommentIcon from '../../../ui/atom/icons/CommentIcon';
 import LikeIcon from '../../../ui/atom/icons/LikeIcon';
 import ShareIcon from '../../../ui/atom/icons/ShareIcon';
