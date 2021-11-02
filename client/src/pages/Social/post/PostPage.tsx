@@ -10,11 +10,9 @@ import LikeIcon from '../../../ui/atom/icons/LikeIcon';
 import ShareIcon from '../../../ui/atom/icons/ShareIcon';
 import Spacer from '../../../ui/atom/spacer/spacer';
 import TextWrap from '../../../ui/atom/typography/TextWrap';
-import breakpoint from '../../../ui/configs/breakpoint';
-import BackgroundOverlay from '../../../ui/molecules/backgroundOverlay/BackgroundOverlay';
 import PostHeader from '../../../ui/molecules/post/PostHeader';
 import ProfileHeader from '../../../ui/molecules/profileHeader/ProfileHeader';
-import CommentComponent from '../../../ui/organisms/comment/Comment';
+import CommentThread from '../../../ui/organisms/commentThread/CommentThread';
 import Modal from '../../../ui/organisms/modal/Modal';
 
 const PostPage: FC = () => {
@@ -23,6 +21,14 @@ const PostPage: FC = () => {
   const closeModal = () => setModal(false);
   const color = useTheme();
 
+  const [reply, setReply] = useState('');
+
+  const postComment = () => {
+    // Handle comment Replies
+    console.log({ reply });
+    setReply('');
+  };
+
   return (
     <FlexBox>
       <StyledPost>
@@ -30,27 +36,6 @@ const PostPage: FC = () => {
         <PostHeader />
         <Spacer size='1rem' />
         <article className='article'>
-          <TextWrap fontSize='bodymd'>
-            We need to move NFTs onto the layer 2 ecosystem to cut fees.
-            However, doing that *right* requires good cross-rollup portability
-            standards, so the ecosystem can avoid getting locked into one
-            particular L2. The NFT ecosystem is growing rapidly, and it’s a
-            significant part of the Ethereum chain’s gas consumption.
-          </TextWrap>
-          <TextWrap fontSize='bodymd'>
-            We need to move NFTs onto the layer 2 ecosystem to cut fees.
-            However, doing that *right* requires good cross-rollup portability
-            standards, so the ecosystem can avoid getting locked into one
-            particular L2. The NFT ecosystem is growing rapidly, and it’s a
-            significant part of the Ethereum chain’s gas consumption.
-          </TextWrap>
-          <TextWrap fontSize='bodymd'>
-            We need to move NFTs onto the layer 2 ecosystem to cut fees.
-            However, doing that *right* requires good cross-rollup portability
-            standards, so the ecosystem can avoid getting locked into one
-            particular L2. The NFT ecosystem is growing rapidly, and it’s a
-            significant part of the Ethereum chain’s gas consumption.
-          </TextWrap>
           <TextWrap fontSize='bodymd'>
             We need to move NFTs onto the layer 2 ecosystem to cut fees.
             However, doing that *right* requires good cross-rollup portability
@@ -85,32 +70,18 @@ const PostPage: FC = () => {
           </Button>
         </StyledActionBar>
       </StyledPost>
-      <BackgroundOverlay open={showComment}>
-        <StyledThread>
-          <div className='head'>
-            <TextWrap bold='bold' fontSize='h2'>
-              Thread
-            </TextWrap>
-
-            <Button btnType='transparent' onClick={() => setShowComment(false)}>
-              <CancelIcon />
-            </Button>
-          </div>
-          <div className='comments'>
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-            <CommentComponent />
-          </div>
-        </StyledThread>
-      </BackgroundOverlay>
+      {/* comments */}
+      <CommentThread
+        setdisplay={setShowComment}
+        title='Thread'
+        isDisplayed={showComment}
+        HandleCommentReply={postComment}
+        ReplyValue={reply}
+        setReplyValue={setReply}
+      />
 
       <Modal
+        closeBtn={false}
         backgroundColor={color.black.matteblack}
         open={isModal}
         closeOnBackgroundClick
@@ -122,33 +93,6 @@ const PostPage: FC = () => {
 export default PostPage;
 
 const FlexBox = styled.div``;
-const StyledThread = styled.aside`
-  overflow-y: auto;
-  background: ${({ theme }) => theme.black.matteblack};
-  .head {
-    border-bottom: 1px ${({ theme }) => theme.primary.white + '23'} solid;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    padding-bottom: 0.48rem;
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  @media (min-width: ${breakpoint.tab}px) {
-    max-width: 410px;
-    position: absolute;
-    width: 100%;
-    right: 260px;
-    top: 0;
-    bottom: 0;
-    min-width: 340px;
-  }
-`;
 
 const StyledPost = styled.div`
   max-width: 620px;

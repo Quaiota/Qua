@@ -1,36 +1,39 @@
-import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
-import React from 'react'
-import CloseIcon from '../icons/Close'
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
+import React from 'react';
+import CloseIcon from '../icons/Close';
 
 export interface IModalContainer {
-  closeAction: () => void
-  backgroundColor?: string | undefined
+  closeBtn?: boolean;
+  closeAction: () => void;
+  backgroundColor?: string | undefined;
 }
 
 const ModalContainer: React.FC<IModalContainer> = ({
   children,
   closeAction,
-  backgroundColor
+  backgroundColor,
+  closeBtn = true,
 }) => {
   return (
     <StyledModalbox backgroundColor={backgroundColor}>
-      <div className="content-wrapper">{children}</div>
-      <section>
-        <StyledModalCloseBtn
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={closeAction}
-        >
-          <CloseIcon />
-        </StyledModalCloseBtn>
-      </section>
+      <div className='content-wrapper'>{children}</div>
+      {closeBtn && (
+        <section>
+          <StyledModalCloseBtn
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={closeAction}>
+            <CloseIcon />
+          </StyledModalCloseBtn>
+        </section>
+      )}
     </StyledModalbox>
-  )
-}
+  );
+};
 
-export default ModalContainer
+export default ModalContainer;
 
 const StyledModalbox = styled.div<{ backgroundColor: string | undefined }>`
   width: fit-content;
@@ -48,7 +51,7 @@ const StyledModalbox = styled.div<{ backgroundColor: string | undefined }>`
     background: ${({ theme, backgroundColor }) =>
       backgroundColor ?? theme.primary.white};
   }
-`
+`;
 
 const StyledModalCloseBtn = styled(motion.button)`
   width: 50px;
@@ -63,4 +66,4 @@ const StyledModalCloseBtn = styled(motion.button)`
   :hover {
     background: ${({ theme }) => theme.primary.white + '3b'};
   }
-`
+`;

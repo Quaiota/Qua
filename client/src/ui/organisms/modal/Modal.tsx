@@ -7,6 +7,7 @@ export interface IModal {
   closeOnBackgroundClick?: boolean;
   close: () => void;
   backgroundColor?: string;
+  closeBtn?: boolean;
 }
 
 const Modal: React.FC<IModal> = ({
@@ -15,13 +16,17 @@ const Modal: React.FC<IModal> = ({
   closeOnBackgroundClick,
   close,
   backgroundColor,
+  closeBtn,
 }) => {
   return (
     <ModalBackground
       open={open}
       close={close}
       closeOnBackgroundClick={closeOnBackgroundClick}>
-      <ModalContainer backgroundColor={backgroundColor} closeAction={close}>
+      <ModalContainer
+        closeBtn={closeBtn}
+        backgroundColor={backgroundColor}
+        closeAction={close}>
         {children}
       </ModalContainer>
     </ModalBackground>
