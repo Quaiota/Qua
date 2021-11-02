@@ -6,7 +6,7 @@ interface ICheckBox {
   name: string;
 }
 
-const CheckBox: React.FC<ICheckBox> = ({ name, label }) => {
+const CheckBox = ({ name, label }: ICheckBox) => {
   return (
     <StyledCheckItem>
       <input id={name} type='checkbox' />
